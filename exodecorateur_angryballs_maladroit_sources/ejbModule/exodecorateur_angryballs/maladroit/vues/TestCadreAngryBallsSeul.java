@@ -1,6 +1,5 @@
 package exodecorateur_angryballs.maladroit.vues;
 
-import java.awt.Frame;
 import java.util.Vector;
 
 import exodecorateur_angryballs.maladroit.modele.Bille;
