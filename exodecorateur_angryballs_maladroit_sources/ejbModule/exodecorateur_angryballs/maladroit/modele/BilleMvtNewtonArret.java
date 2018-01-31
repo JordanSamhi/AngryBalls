@@ -5,7 +5,6 @@ import java.util.Vector;
 
 import mesmaths.cinematique.Collisions;
 import mesmaths.geometrie.base.Vecteur;
-import mesmaths.mecanique.MecaniquePoint;
 
 /**
  * 
