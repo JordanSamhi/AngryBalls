@@ -9,24 +9,24 @@ import java.awt.event.ActionListener;
  *  */
 public class EcouteurBoutonLancer implements ActionListener
 {
-AnimationBilles animationBilles;
+	AnimationBilles animationBilles;
 
 
 
-/**
- * @param animationsBilles
- */
-public EcouteurBoutonLancer(AnimationBilles animationBilles)
-{
-this.animationBilles = animationBilles;
-}
+	/**
+	 * @param animationsBilles
+	 */
+	public EcouteurBoutonLancer(AnimationBilles animationBilles)
+	{
+		this.animationBilles = animationBilles;
+	}
 
 
 
-@Override
-public void actionPerformed(ActionEvent arg0)
-{
-this.animationBilles.lancerAnimation();
-}
+	@Override
+	public void actionPerformed(ActionEvent arg0)
+	{
+		this.animationBilles.lancerAnimation();
+	}
 
 }
