@@ -9,7 +9,7 @@ import exodecorateur_angryballs.maladroit.vues.VueBillard;
  * responsable de l'animation des billes, c-à-d responsable du mouvement de la liste des billes. met perpétuellement à jour les billes. 
  * gère le délai entre 2 mises à jour (deltaT) et prévient la vue responsable du dessin des billes qu'il faut mettre à jour la scène
  * 
- * ICI : IL N'Y A RIEN A CHANGER
+ * ICI : IL N'Y A RIEN A CHANGER jordan
  * */
 public class AnimationBilles  implements Runnable
 {
