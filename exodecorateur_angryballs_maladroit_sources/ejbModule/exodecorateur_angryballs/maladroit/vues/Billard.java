@@ -16,25 +16,26 @@ import exodecorateur_angryballs.maladroit.modele.Bille;
  * */
 public class Billard extends Canvas
 {
-Vector<Bille> billes;
-    public Billard(Vector<Bille> billes)
-    {
-this.billes = billes;
-    }
-    /* (non-Javadoc)
-     * @see java.awt.Canvas#paint(java.awt.Graphics)
-     */
-    @Override
-    public void paint(Graphics graphics)
-    {
-    int i;
-    
-    for ( i = 0; i < this.billes.size(); ++i)
-        this.billes.get(i).dessine(graphics);
-    
-    //System.out.println("billes dans le billard = " + billes);
-    }
+	private static final long serialVersionUID = 1L;
+	Vector<Bille> billes;
+	public Billard(Vector<Bille> billes)
+	{
+		this.billes = billes;
+	}
+	/* (non-Javadoc)
+	 * @see java.awt.Canvas#paint(java.awt.Graphics)
+	 */
+	@Override
+	public void paint(Graphics graphics)
+	{
+		int i;
 
-    
- 
+		for ( i = 0; i < this.billes.size(); ++i)
+			this.billes.get(i).dessine(graphics);
+
+		//System.out.println("billes dans le billard = " + billes);
+	}
+
+
+
 }
