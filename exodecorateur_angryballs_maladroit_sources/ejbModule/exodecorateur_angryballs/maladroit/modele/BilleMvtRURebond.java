@@ -13,7 +13,7 @@ import mesmaths.geometrie.base.Vecteur;
  *  A MODIFIER
  *  
  *  */
-public class BilleMvtRURebond extends Bille
+public class BilleMvtRURebond extends BilleProf
 {
 
 	public BilleMvtRURebond(Vecteur centre, double rayon, Vecteur vitesse,

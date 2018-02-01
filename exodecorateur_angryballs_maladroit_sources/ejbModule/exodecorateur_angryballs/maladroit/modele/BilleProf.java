@@ -16,7 +16,7 @@ import mesmaths.geometrie.base.Vecteur;
  *  
  * 
  * */
-public abstract class Bille
+public abstract class BilleProf
 {
 	//----------------- classe Bille-------------------------------------
 
@@ -40,7 +40,7 @@ public abstract class Bille
 	 * @param accélération
 	 * @param couleur
 	 */
-	protected Bille(Vecteur centre, double rayon, Vecteur vitesse,
+	protected BilleProf(Vecteur centre, double rayon, Vecteur vitesse,
 			Vecteur accélération, Color couleur)
 	{
 		this.position = centre;
@@ -48,7 +48,7 @@ public abstract class Bille
 		this.vitesse = vitesse;
 		this.accélération = accélération;
 		this.couleur = couleur;
-		this.clef = Bille.prochaineClef ++;
+		this.clef = BilleProf.prochaineClef ++;
 	}
 
 	/**
@@ -57,7 +57,7 @@ public abstract class Bille
 	 * @param vitesse
 	 * @param couleur
 	 */
-	public Bille(Vecteur position, double rayon, Vecteur vitesse, Color couleur)
+	public BilleProf(Vecteur position, double rayon, Vecteur vitesse, Color couleur)
 	{
 		this(position,rayon,vitesse,new Vecteur(),couleur);
 	}
@@ -116,13 +116,6 @@ public abstract class Bille
 		return this.clef;
 	}
 
-
-
-
-
-
-
-
 	public double masse() {return ro*Geop.volumeSphère(rayon);}
 
 
@@ -148,7 +141,7 @@ public abstract class Bille
 	 * La nature du calcul du vecteur accélération de la bille  est définie dans les classes dérivées
 	 * A ce niveau le vecteur accélération est mis à zéro (c'est à dire pas d'accélération)
 	 * */
-	public  void gestionAccélération(Vector<Bille> billes)
+	public  void gestionAccélération(Vector<BilleProf> billes)
 	{
 		this.getAccélération().set(Vecteur.VECTEURNUL);
 	}
@@ -163,7 +156,7 @@ public abstract class Bille
 	 * @return true si il y a collision et dans ce cas les positions et vecteurs vitesses des 2 billes impliquées dans le choc sont modifiées
 	 * si renvoie false, il n'y a pas de collision et les billes sont laissées intactes 
 	 * */
-	public boolean gestionCollisionBilleBille(Vector<Bille> billes)
+	public boolean gestionCollisionBilleBille(Vector<BilleProf> billes)
 	{
 		return OutilsBille.gestionCollisionBilleBille(this, billes);
 	}

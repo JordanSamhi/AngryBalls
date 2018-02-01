@@ -15,7 +15,7 @@ import mesmaths.mecanique.MecaniquePoint;
  *  A MODIFIER
  *  
  *  */
-public class BilleMvtNewtonFrottementRebond extends Bille
+public class BilleMvtNewtonFrottementRebond extends BilleProf
 {
 
 	public BilleMvtNewtonFrottementRebond(Vecteur centre, double rayon,
@@ -31,7 +31,7 @@ public class BilleMvtNewtonFrottementRebond extends Bille
 	 * @see decorateur_angryballs.modele.Bille#gestionAccélération(java.util.Vector)
 	 */
 	@Override
-	public void gestionAccélération(Vector<Bille> billes)
+	public void gestionAccélération(Vector<BilleProf> billes)
 	{
 		super.gestionAccélération(billes);                              // remise à zéro du vecteur accélération
 		this.getAccélération().ajoute(OutilsBille.gestionAccélérationNewton(this, billes));     // contribution de l'accélération due à l'attraction des autres billes

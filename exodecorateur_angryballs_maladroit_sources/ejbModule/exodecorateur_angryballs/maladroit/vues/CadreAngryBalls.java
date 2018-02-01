@@ -3,13 +3,12 @@ package exodecorateur_angryballs.maladroit.vues;
 import java.awt.*;
 import java.util.Vector;
 
-import exodecorateur_angryballs.maladroit.modele.Bille;
+import exodecorateur_angryballs.maladroit.modele.BilleProf;
 
 
 import outilsvues.EcouteurTerminaison;
 
 import outilsvues.Outils;
-
 /**
  * Vue dessinant les billes et contenant les 3 boutons de contrôle (arrêt du programme, lancer les billes, arréter les billes) 
  * 
@@ -27,7 +26,7 @@ public class CadreAngryBalls extends Frame implements VueBillard
 
 	EcouteurTerminaison ecouteurTerminaison;
 
-	public CadreAngryBalls(String titre, String message, Vector<Bille> billes) throws HeadlessException
+	public CadreAngryBalls(String titre, String message, Vector<BilleProf> billes) throws HeadlessException
 	{
 		super(titre);
 		Outils.place(this, 0.33, 0.33, 0.5, 0.5);

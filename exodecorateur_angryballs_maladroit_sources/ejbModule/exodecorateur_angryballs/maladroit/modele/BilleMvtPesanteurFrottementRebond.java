@@ -17,7 +17,7 @@ import mesmaths.mecanique.MecaniquePoint;
  *  A MODIFIER
  *  
  *  */
-public class BilleMvtPesanteurFrottementRebond extends Bille
+public class BilleMvtPesanteurFrottementRebond extends BilleProf
 {
 	Vecteur pesanteur;
 
@@ -34,7 +34,7 @@ public class BilleMvtPesanteurFrottementRebond extends Bille
 	 * @see decorateur_angryballs.modele.Bille#gestionAccélération(java.util.Vector)
 	 */
 	@Override
-	public void gestionAccélération(Vector<Bille> billes)
+	public void gestionAccélération(Vector<BilleProf> billes)
 	{
 		super.gestionAccélération(billes);          // remise à zéro du vecteur accélération
 		this.getAccélération().ajoute(this.pesanteur);          // contribution du champ de pesanteur (par exemple)

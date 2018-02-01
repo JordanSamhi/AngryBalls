@@ -2,7 +2,7 @@ package exodecorateur_angryballs.maladroit;
 
 import java.util.Vector;
 
-import exodecorateur_angryballs.maladroit.modele.Bille;
+import exodecorateur_angryballs.maladroit.modele.BilleProf;
 import exodecorateur_angryballs.maladroit.vues.VueBillard;
 
 /**
@@ -15,7 +15,7 @@ public class AnimationBilles  implements Runnable
 {
 
 
-	Vector<Bille> billes;   // la liste de toutes les billes en mouvement 
+	Vector<BilleProf> billes;   // la liste de toutes les billes en mouvement 
 	VueBillard vueBillard;    // la vue responsable du dessin des billes
 	private Thread thread;    // pour lancer et arrêter les billes
 
@@ -26,7 +26,7 @@ public class AnimationBilles  implements Runnable
 	 * @param billes
 	 * @param vueBillard
 	 */
-	public AnimationBilles(Vector<Bille> billes, VueBillard vueBillard)
+	public AnimationBilles(Vector<BilleProf> billes, VueBillard vueBillard)
 	{
 		this.billes = billes;
 		this.vueBillard = vueBillard;
@@ -39,7 +39,7 @@ public class AnimationBilles  implements Runnable
 		try
 		{
 			double deltaT;  // délai entre 2 mises à jour de la liste des billes
-			Bille billeCourante;
+			BilleProf billeCourante;
 
 			double minRayons = AnimationBilles.minRayons(billes);   //nécessaire au calcul de deltaT
 			double minRayons2 = minRayons*minRayons;                //nécessaire au calcul de deltaT
@@ -79,7 +79,7 @@ public class AnimationBilles  implements Runnable
 	 * calcule le maximum de de la norme carrée (pour faire moins de calcul) des vecteurs vitesse de la liste de billes
 	 * 
 	 * */
-	static double maxVitessesCarrées(Vector<Bille> billes)
+	static double maxVitessesCarrées(Vector<BilleProf> billes)
 	{
 		double vitesse2Max = 0;
 
@@ -98,7 +98,7 @@ public class AnimationBilles  implements Runnable
 	 * 
 	 * 
 	 * */
-	static double minRayons(Vector<Bille> billes)
+	static double minRayons(Vector<BilleProf> billes)
 	{
 		double rayonMin, rayonCourant;
 

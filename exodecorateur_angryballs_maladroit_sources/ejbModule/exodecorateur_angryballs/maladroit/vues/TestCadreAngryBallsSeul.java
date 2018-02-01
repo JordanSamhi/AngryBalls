@@ -2,7 +2,7 @@ package exodecorateur_angryballs.maladroit.vues;
 
 import java.util.Vector;
 
-import exodecorateur_angryballs.maladroit.modele.Bille;
+import exodecorateur_angryballs.maladroit.modele.BilleProf;
 
 
 public class TestCadreAngryBallsSeul
@@ -13,7 +13,7 @@ public class TestCadreAngryBallsSeul
 	 */
 	public static void main(String[] args)
 	{
-		Vector<Bille> billes = new Vector<Bille>();
+		Vector<BilleProf> billes = new Vector<BilleProf>();
 		CadreAngryBalls cadre =new CadreAngryBalls("angry balls", "animation de billes marrantes", billes);
 		cadre.montrer();
 	}

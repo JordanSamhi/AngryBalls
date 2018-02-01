@@ -3,7 +3,7 @@ package exodecorateur_angryballs.maladroit;
 import java.awt.Color;
 import java.util.Vector;
 
-import exodecorateur_angryballs.maladroit.modele.Bille;
+import exodecorateur_angryballs.maladroit.modele.BilleProf;
 import exodecorateur_angryballs.maladroit.modele.BilleMvtNewtonArret;
 import exodecorateur_angryballs.maladroit.modele.BilleMvtNewtonFrottementRebond;
 import exodecorateur_angryballs.maladroit.modele.BilleMvtPesanteurFrottementRebond;
@@ -27,7 +27,7 @@ public class TestAngryBalls
 	{
 		//------------------- création de la liste (pour l'instant vide) des billes -----------------------
 
-		Vector<Bille> billes = new Vector<Bille>();
+		Vector<BilleProf> billes = new Vector<BilleProf>();
 
 		//---------------- création de la vue responsable du dessin des billes -------------------------
 

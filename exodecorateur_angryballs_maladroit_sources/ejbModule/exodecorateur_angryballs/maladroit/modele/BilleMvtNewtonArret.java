@@ -15,7 +15,7 @@ import mesmaths.geometrie.base.Vecteur;
  *  
  *  */
 
-public class BilleMvtNewtonArret extends Bille
+public class BilleMvtNewtonArret extends BilleProf
 {
 
 
@@ -29,7 +29,7 @@ public class BilleMvtNewtonArret extends Bille
 	 * @see decorateur_angryballs.modele.Bille#gestionAccélération(java.util.Vector)
 	 */
 	@Override
-	public void gestionAccélération(Vector<Bille> billes)
+	public void gestionAccélération(Vector<BilleProf> billes)
 	{
 		super.gestionAccélération(billes);                              // remise à zéro du vecteur accélération
 		this.getAccélération().ajoute(OutilsBille.gestionAccélérationNewton(this, billes));     // contribution de l'accélération due à l'attraction des autres billes

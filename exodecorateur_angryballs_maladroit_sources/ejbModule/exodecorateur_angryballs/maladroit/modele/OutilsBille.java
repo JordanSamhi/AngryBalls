@@ -23,11 +23,11 @@ public class OutilsBille
 	 * @return la liste des autres billes que cetteBille, c'est-à-dire la liste de toutes les billes sauf cetteBille 
 	 * 
 	 * */
-	public static Vector<Bille> autresBilles(Bille cetteBille, Vector<Bille> billes)
+	public static Vector<BilleProf> autresBilles(BilleProf cetteBille, Vector<BilleProf> billes)
 	{
-		Vector<Bille> autresBilles = new Vector<Bille>();
+		Vector<BilleProf> autresBilles = new Vector<BilleProf>();
 
-		Bille billeCourante;
+		BilleProf billeCourante;
 
 		int i;
 
@@ -55,16 +55,16 @@ public class OutilsBille
 	 * @return true si il y a collision et dans ce cas les positions et vecteurs vitesses des 2 billes impliquées dans le choc sont modifiées
 	 * si renvoie false, il n'y a pas de collision et les billes sont laissées intactes 
 	 * */
-	public static  boolean gestionCollisionBilleBille(Bille cetteBille, Vector<Bille> billes)
+	public static  boolean gestionCollisionBilleBille(BilleProf cetteBille, Vector<BilleProf> billes)
 	{
 		//--- on récupère d'abord dans autresBilles toutes les billes sauf cetteBille ----
 
-		Vector<Bille> autresBilles = OutilsBille.autresBilles(cetteBille, billes);
+		Vector<BilleProf> autresBilles = OutilsBille.autresBilles(cetteBille, billes);
 
 		//--- on cherche à présent la 1ère des autres billes avec laquelle cetteBille est en collision ---------------------
 		//-------------- on suppose qu'il ne peut y avoir de collision qui implique plus de deux billes à la fois ---------------
 
-		Bille billeCourante;
+		BilleProf billeCourante;
 
 		int i;
 
@@ -90,16 +90,16 @@ public class OutilsBille
 	 * @return a : le vecteur accélération résultant
 	 * 
 	 * */
-	public static Vecteur gestionAccélérationNewton(Bille cetteBille, Vector<Bille> billes)
+	public static Vecteur gestionAccélérationNewton(BilleProf cetteBille, Vector<BilleProf> billes)
 	{
 
 		//--- on récupère d'abord dans autresBilles toutes les billes sauf celle-ci ----
 
-		Vector<Bille> autresBilles = OutilsBille.autresBilles(cetteBille, billes);
+		Vector<BilleProf> autresBilles = OutilsBille.autresBilles(cetteBille, billes);
 
 		//-------------- à présent on récupère les masses et les positions des autres billes ------------------
 		int i;
-		Bille billeCourante;
+		BilleProf billeCourante;
 
 		int d = autresBilles.size();
 
