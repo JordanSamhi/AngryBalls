@@ -8,6 +8,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry exported="true" kind="lib" path="/Users/mac/Desktop/M1-info/s2/DP/documents_design_patterns_a_diffuser_M1_annee_17_18/projet_angryballs_2017_2018/mesmaths_sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="Z:/M1/PatronsDeConception/documents_design_patterns_a_diffuser_M1_annee_17_18/projet_angryballs_2017_2018/projet_angryballs_2017_2018/mesmaths_sources.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
