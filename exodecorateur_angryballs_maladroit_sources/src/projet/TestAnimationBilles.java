@@ -1,15 +1,15 @@
-package src.projet;
+package projet;
 
 import java.awt.Color;
 import java.io.IOException;
 import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
-import src.projet.modele.Bille;
-import src.projet.modele.BilleNue;
-import src.projet.modele.decorateurs.MouvementRectiligneUniforme;
-import src.projet.modele.decorateurs.PasseATravers;
-import src.projet.vues.VueBillard;
+import projet.modele.Bille;
+import projet.modele.BilleNue;
+import projet.modele.decorateurs.MouvementRectiligneUniforme;
+import projet.modele.decorateurs.PasseATravers;
+import projet.vues.VueBillard;
 
 public class TestAnimationBilles
 {

@@ -1,4 +1,4 @@
-package src.projet.modele;
+package projet.modele;
 
 import java.util.Vector;
 

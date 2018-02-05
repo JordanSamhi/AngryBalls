@@ -1,11 +1,11 @@
-package src.projet.modele.decorateurs;
+package projet.modele.decorateurs;
 
 import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
-import src.projet.modele.Bille;
-import src.projet.modele.BilleDecorateur;
-import src.projet.modele.OutilsBille;
+import projet.modele.Bille;
+import projet.modele.BilleDecorateur;
+import projet.modele.OutilsBille;
 
 public class AttractionUniverselle extends BilleDecorateur {
 

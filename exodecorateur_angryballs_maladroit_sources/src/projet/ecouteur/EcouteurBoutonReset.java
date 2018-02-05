@@ -1,9 +1,9 @@
-package src.projet.ecouteur;
+package projet.ecouteur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import src.projet.AnimationBilles;
+import projet.AnimationBilles;
 
 public class EcouteurBoutonReset implements ActionListener{
 	AnimationBilles animationBilles;

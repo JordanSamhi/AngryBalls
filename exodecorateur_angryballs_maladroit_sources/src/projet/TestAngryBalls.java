@@ -1,22 +1,22 @@
-package src.projet;
+package projet;
 
 import java.awt.Color;
 import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
-import src.projet.ecouteur.EcouteurBoutonArreter;
-import src.projet.ecouteur.EcouteurBoutonLancer;
-import src.projet.ecouteur.EcouteurBoutonReset;
-import src.projet.modele.Bille;
-import src.projet.modele.BilleNue;
-import src.projet.modele.decorateurs.AttractionUniverselle;
-import src.projet.modele.decorateurs.Frottement;
-import src.projet.modele.decorateurs.MouvementRectiligneUniforme;
-import src.projet.modele.decorateurs.PasseATravers;
-import src.projet.modele.decorateurs.Pesanteur;
-import src.projet.modele.decorateurs.RebondBord;
-import src.projet.modele.decorateurs.RebondBordBloque;
-import src.projet.vues.CadreAngryBalls;
+import projet.ecouteur.EcouteurBoutonArreter;
+import projet.ecouteur.EcouteurBoutonLancer;
+import projet.ecouteur.EcouteurBoutonReset;
+import projet.modele.Bille;
+import projet.modele.BilleNue;
+import projet.modele.decorateurs.AttractionUniverselle;
+import projet.modele.decorateurs.Frottement;
+import projet.modele.decorateurs.MouvementRectiligneUniforme;
+import projet.modele.decorateurs.PasseATravers;
+import projet.modele.decorateurs.Pesanteur;
+import projet.modele.decorateurs.RebondBord;
+import projet.modele.decorateurs.RebondBordBloque;
+import projet.vues.CadreAngryBalls;
 
 public class TestAngryBalls{
 

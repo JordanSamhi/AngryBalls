@@ -1,10 +1,10 @@
-package src.projet;
+package projet;
 
 import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
-import src.projet.modele.Bille;
-import src.projet.vues.VueBillard;
+import projet.modele.Bille;
+import projet.vues.VueBillard;
 
 /**
  * responsable de l'animation des billes, c-à-d responsable du mouvement de la liste des billes. met perpétuellement à jour les billes. 

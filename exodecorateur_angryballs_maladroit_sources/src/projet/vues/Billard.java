@@ -1,10 +1,10 @@
-package src.projet.vues;
+package projet.vues;
 
 import java.awt.Canvas;
 import java.awt.Graphics;
 import java.util.Vector;
 
-import src.projet.modele.Bille;
+import projet.modele.Bille;
 
 
 /**

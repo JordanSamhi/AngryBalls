@@ -1,6 +1,6 @@
-package src.projet;
+package projet;
 
-import src.projet.vues.VueBillard;
+import projet.vues.VueBillard;
 
 public class VueBillardFactice implements VueBillard
 {
