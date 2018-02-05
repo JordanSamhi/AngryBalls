@@ -1,7 +1,9 @@
-package exodecorateur_angryballs.maladroit;
+package src.projet.ecouteur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import src.projet.AnimationBilles;
 
 /**
  *  ICI : IL N'Y A RIEN A CHANGER 

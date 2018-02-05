@@ -1,13 +1,15 @@
-package exodecorateur_angryballs.maladroit;
+package src.projet;
 
 import java.awt.Color;
 import java.io.IOException;
 import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
-import exodecorateur_angryballs.maladroit.modele.Bille;
-import exodecorateur_angryballs.maladroit.modele.BilleMvtRUPasseMurailles;
-import exodecorateur_angryballs.maladroit.vues.VueBillard;
+import src.projet.modele.Bille;
+import src.projet.modele.BilleNue;
+import src.projet.modele.decorateurs.MouvementRectiligneUniforme;
+import src.projet.modele.decorateurs.PasseATravers;
+import src.projet.vues.VueBillard;
 
 public class TestAnimationBilles
 {
@@ -23,13 +25,17 @@ public class TestAnimationBilles
 		Vecteur centreBille1 = new Vecteur(110,70);
 		double rayonBille1 = 12;
 		Vecteur vitesseBille1 = new Vecteur (10,-30);
-		Bille bille1 = new BilleMvtRUPasseMurailles(centreBille1, rayonBille1, vitesseBille1, Color.blue);
+		Bille bille1 = new BilleNue(centreBille1, rayonBille1, Color.blue);
+		bille1 = new MouvementRectiligneUniforme(bille1, vitesseBille1);
+		bille1 = new PasseATravers(bille1);
 		billes.add(bille1);
 
 		Vecteur centreBille2 = new Vecteur(20,50);
 		double rayonBille2 = 15;
 		Vecteur vitesseBille2 = new Vecteur (5,-5);
-		Bille bille2 = new BilleMvtRUPasseMurailles(centreBille2, rayonBille2, vitesseBille2, Color.blue);
+		Bille bille2 = new BilleNue(centreBille2, rayonBille2, Color.blue);
+		bille2 = new MouvementRectiligneUniforme(bille2, vitesseBille2);
+		bille2 = new PasseATravers(bille2);
 		billes.add(bille2);
 
 
@@ -37,8 +43,7 @@ public class TestAnimationBilles
 		double rayonmin2 = AnimationBilles.minRayons(billes);
 
 		System.out.println("vmax2 = " + vmax2 + "rayonMin2 = " + rayonmin2);
-		int c = System.in.read();
-
+		
 		VueBillard vueBillardFactice = new VueBillardFactice();
 
 		AnimationBilles animation = new AnimationBilles(billes, vueBillardFactice);

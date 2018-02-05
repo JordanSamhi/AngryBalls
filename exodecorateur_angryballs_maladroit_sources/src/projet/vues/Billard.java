@@ -1,10 +1,10 @@
-package exodecorateur_angryballs.maladroit.vues;
+package src.projet.vues;
 
 import java.awt.Canvas;
 import java.awt.Graphics;
 import java.util.Vector;
 
-import exodecorateur_angryballs.maladroit.modele.Bille;
+import src.projet.modele.Bille;
 
 
 /**
@@ -18,6 +18,7 @@ public class Billard extends Canvas
 {
 	private static final long serialVersionUID = 1L;
 	Vector<Bille> billes;
+	
 	public Billard(Vector<Bille> billes)
 	{
 		this.billes = billes;

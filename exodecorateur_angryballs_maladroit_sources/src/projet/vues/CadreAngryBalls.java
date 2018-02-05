@@ -1,15 +1,17 @@
-package exodecorateur_angryballs.maladroit.vues;
+package src.projet.vues;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.HeadlessException;
+import java.awt.Panel;
+import java.awt.TextField;
 import java.util.Vector;
 
-import exodecorateur_angryballs.maladroit.modele.Bille;
-
-
-import outilsvues.EcouteurTerminaison;
-
-import outilsvues.Outils;
-
+import src.outilsvues.EcouteurTerminaison;
+import src.outilsvues.Outils;
+import src.projet.modele.Bille;
 /**
  * Vue dessinant les billes et contenant les 3 boutons de contrôle (arrêt du programme, lancer les billes, arréter les billes) 
  * 
@@ -22,7 +24,7 @@ public class CadreAngryBalls extends Frame implements VueBillard
 	private static final long serialVersionUID = 1L;
 	TextField présentation;
 	Billard billard;
-	public Button lancerBilles, arrêterBilles;
+	public Button lancerBilles, arrêterBilles, resetBilles;
 	Panel haut, centre, bas;
 
 	EcouteurTerminaison ecouteurTerminaison;
@@ -43,7 +45,8 @@ public class CadreAngryBalls extends Frame implements VueBillard
 		this.bas = new Panel(); this.bas.setBackground(Color.LIGHT_GRAY);
 		this.add(this.bas,BorderLayout.SOUTH);
 
-		this.présentation = new TextField(message, 100); this.présentation.setEditable(false);
+		this.présentation = new TextField(message, 100);
+		this.présentation.setEditable(false);
 		this.haut.add(this.présentation);
 
 		this.billard = new Billard(billes);
@@ -51,6 +54,7 @@ public class CadreAngryBalls extends Frame implements VueBillard
 
 		this.lancerBilles = new Button("lancer les billes"); this.bas.add(this.lancerBilles);
 		this.arrêterBilles = new Button("arrêter les billes"); this.bas.add(this.arrêterBilles);
+		this.resetBilles = new Button("reset scene"); this.bas.add(this.resetBilles);
 
 	}
 

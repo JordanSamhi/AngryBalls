@@ -1,4 +1,4 @@
-package exodecorateur_angryballs.maladroit.vues;
+package src.projet.vues;
 
 
 /**
@@ -10,14 +10,9 @@ package exodecorateur_angryballs.maladroit.vues;
  *  
  * 
  * */
-public interface VueBillard
-{
-
+public interface VueBillard{
 	public double largeurBillard();
-
 	public double hauteurBillard();
-
 	public void miseAJour();
-
 	public void montrer();
 }
