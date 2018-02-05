@@ -1,4 +1,4 @@
-package projet.vues;
+package src.projet.vues;
 
 
 /**

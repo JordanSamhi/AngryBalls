@@ -1,4 +1,4 @@
-package projet.modele;
+package src.projet.modele;
 
 import java.awt.Color;
 import java.awt.Graphics;

@@ -1,9 +1,9 @@
-package projet.ecouteur;
+package src.projet.ecouteur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import projet.AnimationBilles;
+import src.projet.AnimationBilles;
 
 /**
  *  ICI : IL N'Y A RIEN A CHANGER 

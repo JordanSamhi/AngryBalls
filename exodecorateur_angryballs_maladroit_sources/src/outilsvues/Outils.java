@@ -1,4 +1,4 @@
-package outilsvues;
+package src.outilsvues;
 
 import java.awt.Dimension;
 import java.awt.Frame;

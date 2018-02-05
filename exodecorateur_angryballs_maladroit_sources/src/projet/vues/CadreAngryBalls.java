@@ -1,4 +1,4 @@
-package projet.vues;
+package src.projet.vues;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
@@ -9,9 +9,9 @@ import java.awt.Panel;
 import java.awt.TextField;
 import java.util.Vector;
 
-import outilsvues.EcouteurTerminaison;
-import outilsvues.Outils;
-import projet.modele.Bille;
+import src.outilsvues.EcouteurTerminaison;
+import src.outilsvues.Outils;
+import src.projet.modele.Bille;
 /**
  * Vue dessinant les billes et contenant les 3 boutons de contrôle (arrêt du programme, lancer les billes, arréter les billes) 
  * 

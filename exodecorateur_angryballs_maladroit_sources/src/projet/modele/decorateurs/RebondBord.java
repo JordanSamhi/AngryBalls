@@ -1,8 +1,8 @@
-package projet.modele.decorateurs;
+package src.projet.modele.decorateurs;
 
 import mesmaths.cinematique.Collisions;
-import projet.modele.Bille;
-import projet.modele.BilleDecorateur;
+import src.projet.modele.Bille;
+import src.projet.modele.BilleDecorateur;
 
 public class RebondBord extends BilleDecorateur {
 	
