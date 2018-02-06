@@ -94,22 +94,21 @@ public class AnimationBilles  implements Runnable{
 
 	public void setBillardMode() {
 		this.mode = new BillardGame();
-		this.initializeMode();
+		this.launchMode();
 	}
 
 	public void setNormalMode() {
 		this.mode = new NormalMode();
-		this.initializeMode();
+		this.launchMode();
 	}
 	
-	public void initializeMode(){
+	public void launchMode(){
 		if(this.vueBillard.isDisabledResetButton())
 			this.vueBillard.enableResetButton();
 		this.arrêterAnimation();
 		this.mode.genererBilles(this.vueBillard);
 		this.billes = this.mode.getBilles();
 		this.vueBillard.setBillardBilles(this.billes);
-		this.vueBillard.setBackgroundColor(mode.getColorTable());
 		this.lancerAnimation();
 	}
 	

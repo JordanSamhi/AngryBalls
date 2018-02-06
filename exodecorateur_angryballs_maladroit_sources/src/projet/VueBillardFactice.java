@@ -1,6 +1,5 @@
 package projet;
 
-import java.awt.Color;
 import java.util.Vector;
 
 import projet.modele.Bille;
@@ -53,12 +52,6 @@ public class VueBillardFactice implements VueBillard
 	public boolean isDisabledResetButton() {
 		// TODO Auto-generated method stub
 		return false;
-	}
-
-	@Override
-	public void setBackgroundColor(Color c) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

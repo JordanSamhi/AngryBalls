@@ -111,9 +111,4 @@ public class CadreAngryBalls extends Frame implements VueBillard{
 	public boolean isDisabledResetButton() {
 		return !this.resetBilles.isEnabled();
 	}
-
-	@Override
-	public void setBackgroundColor(Color c) {
-		this.setBackground(c);
-	}
 }
