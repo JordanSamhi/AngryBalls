@@ -70,7 +70,6 @@ public class BilleNue extends Bille {
 
 		g.setColor(couleur);
 		g.fillOval( xMin, yMin, width, height);
-		g.setColor(Color.CYAN);
 		g.drawOval(xMin, yMin, width, height);
 	}
 

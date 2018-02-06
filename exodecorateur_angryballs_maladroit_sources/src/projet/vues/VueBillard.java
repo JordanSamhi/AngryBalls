@@ -1,5 +1,8 @@
 package projet.vues;
 
+import java.util.Vector;
+
+import projet.modele.Bille;
 
 /**
  * contrat respecté par toute vue capable de dessiner la liste des billes
@@ -15,4 +18,5 @@ public interface VueBillard{
 	public double hauteurBillard();
 	public void miseAJour();
 	public void montrer();
+	public void setBillardBilles(Vector<Bille> billes);
 }

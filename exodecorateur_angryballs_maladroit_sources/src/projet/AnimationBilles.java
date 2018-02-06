@@ -2,8 +2,10 @@ package projet;
 
 import java.util.Vector;
 
-import mesmaths.geometrie.base.Vecteur;
 import projet.modele.Bille;
+import projet.modele.mode.BillardGame;
+import projet.modele.mode.Mode;
+import projet.modele.mode.NormalMode;
 import projet.vues.VueBillard;
 
 /**
@@ -17,9 +19,17 @@ public class AnimationBilles  implements Runnable{
 	Vector<Bille> billes; 
 	VueBillard vueBillard;
 	private Thread thread;
-	private final double deltaT = 1;
+	private final double deltaT = 5;
 	private final double vMax = 0.1;
+	Mode mode;
 
+	public AnimationBilles(Mode mode, VueBillard vueBillard){
+		this.mode = mode;
+		this.billes = mode.getBilles();
+		this.vueBillard = vueBillard;
+		this.thread = null;
+	}
+	
 	public AnimationBilles(Vector<Bille> billes, VueBillard vueBillard){
 		this.billes = billes;
 		this.vueBillard = vueBillard;
@@ -78,14 +88,28 @@ public class AnimationBilles  implements Runnable{
 	
 	public void resetAnimation(){
 		this.arrêterAnimation();
-		for(Bille bille : this.billes){
-			bille.setPosition(Vecteur.créationAléatoire(0, 0, this.vueBillard.largeurBillard(), this.vueBillard.hauteurBillard()));
-			bille.setVitesse(Vecteur.créationAléatoire(-this.getvMax(), -this.getvMax(), this.getvMax(), this.getvMax()));
-			bille.setAcceleration(new Vecteur());
-		}
+		this.mode.genererBilles(this.vueBillard);
 		this.lancerAnimation();
 	}
 
+	public void setBillardMode() {
+		this.mode = new BillardGame();
+		this.launchMode();
+	}
+
+	public void setNormalMode() {
+		this.mode = new NormalMode();
+		this.launchMode();
+	}
+	
+	public void launchMode() {
+		this.arrêterAnimation();
+		this.mode.genererBilles(this.vueBillard);
+		this.billes = this.mode.getBilles();
+		this.vueBillard.setBillardBilles(this.billes);
+		this.lancerAnimation();
+	}
+	
 	public double getDeltaT() {
 		return this.deltaT;
 	}

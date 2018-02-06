@@ -1,5 +1,8 @@
 package projet;
 
+import java.util.Vector;
+
+import projet.modele.Bille;
 import projet.vues.VueBillard;
 
 public class VueBillardFactice implements VueBillard
@@ -31,6 +34,12 @@ public class VueBillardFactice implements VueBillard
 	{
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void setBillardBilles(Vector<Bille> billes) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
