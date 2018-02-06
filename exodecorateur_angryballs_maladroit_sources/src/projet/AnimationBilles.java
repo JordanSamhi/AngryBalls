@@ -23,9 +23,8 @@ public class AnimationBilles  implements Runnable{
 	private final double vMax = 0.1;
 	Mode mode;
 
-	public AnimationBilles(Mode mode, VueBillard vueBillard){
-		this.mode = mode;
-		this.billes = mode.getBilles();
+	public AnimationBilles(VueBillard vueBillard){
+		this.billes = new Vector<Bille>();
 		this.vueBillard = vueBillard;
 		this.thread = null;
 	}
@@ -89,6 +88,7 @@ public class AnimationBilles  implements Runnable{
 	public void resetAnimation(){
 		this.arrêterAnimation();
 		this.mode.genererBilles(this.vueBillard);
+		this.billes = this.mode.getBilles();
 		this.lancerAnimation();
 	}
 
@@ -102,7 +102,9 @@ public class AnimationBilles  implements Runnable{
 		this.launchMode();
 	}
 	
-	public void launchMode() {
+	public void launchMode(){
+		if(this.vueBillard.isDisabledResetButton())
+			this.vueBillard.enableResetButton();
 		this.arrêterAnimation();
 		this.mode.genererBilles(this.vueBillard);
 		this.billes = this.mode.getBilles();

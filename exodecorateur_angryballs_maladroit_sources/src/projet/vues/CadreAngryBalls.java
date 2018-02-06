@@ -32,7 +32,7 @@ public class CadreAngryBalls extends Frame implements VueBillard{
 
 	EcouteurTerminaison ecouteurTerminaison;
 
-	public CadreAngryBalls(String titre, String message, Vector<Bille> billes) throws HeadlessException{
+	public CadreAngryBalls(String titre, String message) throws HeadlessException{
 		super(titre);
 		Outils.place(this, 0.33, 0.33, 0.5, 0.5);
 		this.ecouteurTerminaison = new EcouteurTerminaison(this);
@@ -50,16 +50,17 @@ public class CadreAngryBalls extends Frame implements VueBillard{
 		this.présentation = new TextField(message, 41);
 		this.présentation.setEditable(false);
 		this.haut.add(this.présentation);
-
-		this.billard = new Billard(billes);
-		this.add(this.billard);
 		
+		this.billard = new Billard();
+		this.add(this.billard);
+
 		this.basButtons = new Panel();
 		this.basButtons.setBackground(Color.LIGHT_GRAY);
 		this.bas.add(this.basButtons, BorderLayout.NORTH);
 		this.lancerBilles = new Button("lancer les billes");
 		this.arrêterBilles = new Button("arrêter les billes");
 		this.resetBilles = new Button("reset scene");
+		this.resetBilles.setEnabled(false);
 		this.basButtons.add(this.arrêterBilles);
 		this.basButtons.add(this.lancerBilles);
 		this.basButtons.add(this.resetBilles);
@@ -73,7 +74,6 @@ public class CadreAngryBalls extends Frame implements VueBillard{
 		this.basCheckBox.setBackground(Color.LIGHT_GRAY);
 		this.basCheckBox.add(this.normalMode);
 		this.basCheckBox.add(this.billardMode);
-		this.normalMode.setState(true);
 		this.bas.add(this.basCheckBox, BorderLayout.SOUTH);
 		
 
@@ -100,5 +100,15 @@ public class CadreAngryBalls extends Frame implements VueBillard{
 	@Override
 	public void setBillardBilles(Vector<Bille> billes) {
 		this.billard.setBilles(billes);
+	}
+
+	@Override
+	public void enableResetButton() {
+		this.resetBilles.setEnabled(true);
+	}
+
+	@Override
+	public boolean isDisabledResetButton() {
+		return !this.resetBilles.isEnabled();
 	}
 }

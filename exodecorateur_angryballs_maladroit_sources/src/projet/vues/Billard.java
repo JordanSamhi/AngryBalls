@@ -19,8 +19,9 @@ public class Billard extends Canvas
 	private static final long serialVersionUID = 1L;
 	private Vector<Bille> billes;
 	
-	public Billard(Vector<Bille> billes) {
-		this.billes = billes;
+	public Billard() {
+		super();
+		this.billes = new Vector<Bille>();
 	}
 	
 	@Override

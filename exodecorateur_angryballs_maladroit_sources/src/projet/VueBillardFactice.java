@@ -42,4 +42,16 @@ public class VueBillardFactice implements VueBillard
 		
 	}
 
+	@Override
+	public void enableResetButton() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean isDisabledResetButton() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

@@ -19,4 +19,6 @@ public interface VueBillard{
 	public void miseAJour();
 	public void montrer();
 	public void setBillardBilles(Vector<Bille> billes);
+	public void enableResetButton();
+	public boolean isDisabledResetButton();
 }

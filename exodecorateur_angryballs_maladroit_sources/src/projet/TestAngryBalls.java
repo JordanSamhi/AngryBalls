@@ -5,20 +5,16 @@ import projet.ecouteur.EcouteurBoutonArreter;
 import projet.ecouteur.EcouteurBoutonLancer;
 import projet.ecouteur.EcouteurBoutonReset;
 import projet.ecouteur.EcouteurNormalMode;
-import projet.modele.mode.Mode;
-import projet.modele.mode.NormalMode;
 import projet.vues.CadreAngryBalls;
 
 public class TestAngryBalls{
 
 	public static void main(String[] args)
 	{
-		Mode mode = new NormalMode();
-		CadreAngryBalls cadre = new CadreAngryBalls(" Angry balls", " Projet Design Pattern SAMHI - ALMEFTAH - AITAAZIZE", mode.getBilles());
+		CadreAngryBalls cadre = new CadreAngryBalls(" Angry balls", " Projet Design Pattern SAMHI - ALMEFTAH - AITAAZIZE");
 		cadre.montrer();
-		mode.genererBilles(cadre);
 		
-		AnimationBilles animationBilles = new AnimationBilles(mode, cadre);
+		AnimationBilles animationBilles = new AnimationBilles(cadre);
 
 		EcouteurBoutonLancer écouteurBoutonLancer = new EcouteurBoutonLancer(animationBilles);
 		EcouteurBoutonArreter écouteurBoutonArrêter = new EcouteurBoutonArreter(animationBilles);
