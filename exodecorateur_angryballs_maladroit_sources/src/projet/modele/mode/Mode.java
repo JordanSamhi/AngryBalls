@@ -1,6 +1,5 @@
 package projet.modele.mode;
 
-import java.awt.Color;
 import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
@@ -14,17 +13,13 @@ public abstract class Mode {
 	protected double rayon;
 	protected double diametre;
 	protected Vecteur pesanteur;
-	protected Color color;
 	
 	public Mode(){
 		this.billes = new Vector<Bille>();
 		this.vMax = 0.1;
 		this.pesanteur = new Vecteur(0,0.001);
-		this.color = this.getColorTable();
 	}
 	
-	public abstract Color getColorTable();
-
 	public Vector<Bille> getBilles() {
 		return this.billes;
 	}
