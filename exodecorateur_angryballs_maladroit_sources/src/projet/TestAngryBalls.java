@@ -26,6 +26,6 @@ public class TestAngryBalls{
 		cadre.arrêterBilles.addActionListener(écouteurBoutonArrêter);
 		cadre.resetBilles.addActionListener(écouteurBoutonReset);
 		cadre.normalMode.addItemListener(ecouteurNormalMode);
-		cadre.billardMode.addItemListener(ecouteurBillardMode);
+		cadre.billardMode.addItemListener(ecouteurBillardMode); 
 	}
 }
