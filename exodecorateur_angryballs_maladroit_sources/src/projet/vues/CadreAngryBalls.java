@@ -1,15 +1,16 @@
 package projet.vues;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
 import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
 import java.awt.Color;
-import java.awt.Frame;
 import java.awt.HeadlessException;
-import java.awt.Panel;
-import java.awt.TextField;
 import java.util.Vector;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import outilsvues.EcouteurTerminaison;
 import outilsvues.Outils;
@@ -21,14 +22,14 @@ import projet.modele.Bille;
  *  
  * 
  * */
-public class CadreAngryBalls extends Frame implements VueBillard{
+public class CadreAngryBalls extends JFrame implements VueBillard{
 	private static final long serialVersionUID = 1L;
-	TextField présentation;
-	Billard billard;
-	public Button lancerBilles, arrêterBilles, resetBilles;
-	Panel haut, centre, bas, basButtons, basCheckBox;
+	private JTextField présentation;
+	private Billard billard;
+	private JButton lancerBilles, arrêterBilles, resetBilles;
+	private JPanel haut, centre, bas, basButtons, basCheckBox;
 	private CheckboxGroup choixTypeVue;
-	public Checkbox normalMode, billardMode;
+	private Checkbox normalMode, billardMode;
 
 	EcouteurTerminaison ecouteurTerminaison;
 
@@ -37,29 +38,29 @@ public class CadreAngryBalls extends Frame implements VueBillard{
 		Outils.place(this, 0.33, 0.33, 0.5, 0.5);
 		this.ecouteurTerminaison = new EcouteurTerminaison(this);
 
-		this.haut = new Panel(); this.haut.setBackground(Color.LIGHT_GRAY);
+		this.haut = new JPanel(); this.haut.setBackground(Color.LIGHT_GRAY);
 		this.add(this.haut,BorderLayout.NORTH);
 
-		this.centre = new Panel();
+		this.centre = new JPanel();
 		this.add(this.centre,BorderLayout.CENTER);
 
-		this.bas = new Panel(); this.bas.setBackground(Color.LIGHT_GRAY);
+		this.bas = new JPanel(); this.bas.setBackground(Color.LIGHT_GRAY);
 		this.bas.setLayout(new BorderLayout());
 		this.add(this.bas,BorderLayout.SOUTH);
 		
-		this.présentation = new TextField(message, 41);
+		this.présentation = new JTextField(message, 41);
 		this.présentation.setEditable(false);
 		this.haut.add(this.présentation);
 		
 		this.billard = new Billard();
 		this.add(this.billard);
 
-		this.basButtons = new Panel();
+		this.basButtons = new JPanel();
 		this.basButtons.setBackground(Color.LIGHT_GRAY);
 		this.bas.add(this.basButtons, BorderLayout.NORTH);
-		this.lancerBilles = new Button("lancer les billes");
-		this.arrêterBilles = new Button("arrêter les billes");
-		this.resetBilles = new Button("reset scene");
+		this.lancerBilles = new JButton("lancer les billes");
+		this.arrêterBilles = new JButton("arrêter les billes");
+		this.resetBilles = new JButton("reset scene");
 		this.resetBilles.setEnabled(false);
 		this.basButtons.add(this.arrêterBilles);
 		this.basButtons.add(this.lancerBilles);
@@ -70,7 +71,7 @@ public class CadreAngryBalls extends Frame implements VueBillard{
 		this.billardMode = new Checkbox("Mode Billard");
 		this.normalMode.setCheckboxGroup(choixTypeVue);
 		this.billardMode.setCheckboxGroup(choixTypeVue);
-		this.basCheckBox = new Panel();
+		this.basCheckBox = new JPanel();
 		this.basCheckBox.setBackground(Color.LIGHT_GRAY);
 		this.basCheckBox.add(this.normalMode);
 		this.basCheckBox.add(this.billardMode);
@@ -111,4 +112,58 @@ public class CadreAngryBalls extends Frame implements VueBillard{
 	public boolean isDisabledResetButton() {
 		return !this.resetBilles.isEnabled();
 	}
+
+	public JTextField getPrésentation() {
+		return présentation;
+	}
+
+	public Billard getBillard() {
+		return billard;
+	}
+
+	public JButton getLancerBilles() {
+		return lancerBilles;
+	}
+
+	public JButton getArrêterBilles() {
+		return arrêterBilles;
+	}
+
+	public JButton getResetBilles() {
+		return resetBilles;
+	}
+
+	public JPanel getHaut() {
+		return haut;
+	}
+
+	public JPanel getCentre() {
+		return centre;
+	}
+
+	public JPanel getBas() {
+		return bas;
+	}
+
+	public JPanel getBasButtons() {
+		return basButtons;
+	}
+
+	public JPanel getBasCheckBox() {
+		return basCheckBox;
+	}
+
+	public CheckboxGroup getChoixTypeVue() {
+		return choixTypeVue;
+	}
+
+	public Checkbox getNormalMode() {
+		return normalMode;
+	}
+
+	public Checkbox getBillardMode() {
+		return billardMode;
+	}
+	
+	
 }

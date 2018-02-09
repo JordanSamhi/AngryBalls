@@ -22,10 +22,10 @@ public class TestAngryBalls{
 		EcouteurNormalMode ecouteurNormalMode = new EcouteurNormalMode(animationBilles);
 		EcouteurBillardMode ecouteurBillardMode = new EcouteurBillardMode(animationBilles);
 
-		cadre.lancerBilles.addActionListener(écouteurBoutonLancer);
-		cadre.arrêterBilles.addActionListener(écouteurBoutonArrêter);
-		cadre.resetBilles.addActionListener(écouteurBoutonReset);
-		cadre.normalMode.addItemListener(ecouteurNormalMode);
-		cadre.billardMode.addItemListener(ecouteurBillardMode); 
+		cadre.getLancerBilles().addActionListener(écouteurBoutonLancer);
+		cadre.getArrêterBilles().addActionListener(écouteurBoutonArrêter);
+		cadre.getResetBilles().addActionListener(écouteurBoutonReset);
+		cadre.getNormalMode().addItemListener(ecouteurNormalMode);
+		cadre.getBillardMode().addItemListener(ecouteurBillardMode); 
 	}
 }
