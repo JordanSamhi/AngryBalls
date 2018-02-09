@@ -51,5 +51,10 @@ public class NormalMode extends Mode{
 		this.billes.add(b4);
 		this.billes.add(b5);
 	}
+
+	@Override
+	public Color getColorTable() {
+		return Color.WHITE;
+	}
 	
 }
