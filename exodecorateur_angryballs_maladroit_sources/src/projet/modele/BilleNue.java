@@ -62,7 +62,6 @@ public class BilleNue extends Bille {
 	public void dessine (Graphics g){
 		int width, height;
 		int xMin, yMin;
-
 		xMin = (int)Math.round(position.x-rayon);
 		yMin = (int)Math.round(position.y-rayon);
 

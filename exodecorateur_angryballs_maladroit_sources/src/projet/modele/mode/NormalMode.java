@@ -6,6 +6,7 @@ import mesmaths.geometrie.base.Vecteur;
 import projet.modele.Bille;
 import projet.modele.BilleNue;
 import projet.modele.decorateurs.AttractionUniverselle;
+import projet.modele.decorateurs.BillePilotee;
 import projet.modele.decorateurs.Frottement;
 import projet.modele.decorateurs.MouvementRectiligneUniforme;
 import projet.modele.decorateurs.PasseATravers;
@@ -50,6 +51,11 @@ public class NormalMode extends Mode{
 		this.billes.add(b3);
 		this.billes.add(b4);
 		this.billes.add(b5);
+	}
+
+	@Override
+	public Color getColorTable() {
+		return Color.WHITE;
 	}
 	
 }

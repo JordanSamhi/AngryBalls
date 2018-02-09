@@ -1,5 +1,6 @@
 package projet.vues;
 
+import java.awt.Color;
 import java.util.Vector;
 
 import projet.modele.Bille;
@@ -21,4 +22,5 @@ public interface VueBillard{
 	public void setBillardBilles(Vector<Bille> billes);
 	public void enableResetButton();
 	public boolean isDisabledResetButton();
+	public void setBackgroundColor(Color c);
 }

@@ -53,7 +53,7 @@ public class CadreAngryBalls extends JFrame implements VueBillard{
 		this.haut.add(this.présentation);
 		
 		this.billard = new Billard();
-		this.add(this.billard);
+		this.getContentPane().add(this.billard);
 
 		this.basButtons = new JPanel();
 		this.basButtons.setBackground(Color.LIGHT_GRAY);
@@ -76,8 +76,6 @@ public class CadreAngryBalls extends JFrame implements VueBillard{
 		this.basCheckBox.add(this.normalMode);
 		this.basCheckBox.add(this.billardMode);
 		this.bas.add(this.basCheckBox, BorderLayout.SOUTH);
-		
-
 	}
 
 	public double largeurBillard() {
@@ -165,5 +163,8 @@ public class CadreAngryBalls extends JFrame implements VueBillard{
 		return billardMode;
 	}
 	
-	
+	@Override
+	public void setBackgroundColor(Color c) {
+		this.billard.setBackground(c);
+	}
 }

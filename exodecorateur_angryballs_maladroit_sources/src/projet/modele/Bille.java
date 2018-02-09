@@ -4,9 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Vector;
 
+import javax.swing.JComponent;
+
 import mesmaths.geometrie.base.Vecteur;
 
-public abstract class Bille {
+public abstract class Bille extends JComponent{
 	public abstract void gestionAccélération(Vector<Bille> billes);
 	public abstract Vecteur getPosition();
 	public abstract double getRayon();
@@ -26,5 +28,9 @@ public abstract class Bille {
 	public String toString(){
 		return "centre = " + this.getPosition() + " rayon = "+ this.getRayon()+  " vitesse = " + this.getVitesse() 
 		+ " accélération = " + this.getAccélération()+ " couleur = " + this.getColor() + "clef = " + this.getClef();
+	}
+	
+	public double getDiametre() {
+		return 2 * this.getRayon();
 	}
 }
