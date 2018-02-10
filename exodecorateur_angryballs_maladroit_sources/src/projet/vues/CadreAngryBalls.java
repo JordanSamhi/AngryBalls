@@ -5,10 +5,13 @@ import java.awt.BorderLayout;
 import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.util.Vector;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -36,7 +39,8 @@ import projet.vues.ecoutables.boutons.BoutonReset;
  * */
 public class CadreAngryBalls extends JFrame implements VueBillard, Observateur{
 	private static final long serialVersionUID = 1L;
-	private JTextField présentation;
+	private JTextField presentation;
+	private JLabel messageAccueilProjet, messageAccueilNoms, messageAccueilTitre;
 	private Billard billard;
 	private Bouton lancerBilles, arreterBilles, resetBilles, normalModeButton, billardModeButton;
 	private JPanel haut, centre, bas, basButtons, basCheckBox;
@@ -46,7 +50,7 @@ public class CadreAngryBalls extends JFrame implements VueBillard, Observateur{
 
 	EcouteurTerminaison ecouteurTerminaison;
 
-	public CadreAngryBalls(String titre, String message) throws HeadlessException{
+	public CadreAngryBalls(String titre, String message1, String message2) throws HeadlessException{
 		super(titre);
 		Outils.place(this, 0.33, 0.33, 0.5, 0.5);
 		this.ecouteurTerminaison = new EcouteurTerminaison(this);
@@ -61,14 +65,27 @@ public class CadreAngryBalls extends JFrame implements VueBillard, Observateur{
 		this.bas.setLayout(new BorderLayout());
 		this.add(this.bas,BorderLayout.SOUTH);
 		
-		this.présentation = new JTextField(message, 41);
-		this.présentation.setEditable(false);
-		this.haut.add(this.présentation);
+		this.presentation = new JTextField(message1, 40);
+		this.presentation.setEditable(false);
+		this.presentation.setHorizontalAlignment(JTextField.CENTER);
 		
 		this.billard = new Billard();
 		this.billard.addObserver(this);
+		this.billard.setLayout(new GridLayout(3, 1));
 		this.getContentPane().add(this.billard);
-
+		
+		this.messageAccueilProjet = new JLabel(message1, JLabel.CENTER);
+		this.messageAccueilProjet.setFont(new Font("arial", Font.BOLD, 50));
+		this.billard.add(this.messageAccueilProjet);
+		
+		this.messageAccueilTitre = new JLabel(titre, JLabel.CENTER);
+		this.messageAccueilTitre.setFont(new Font("arial", Font.BOLD, 40));
+		this.billard.add(this.messageAccueilTitre);
+		
+		this.messageAccueilNoms = new JLabel(message2, JLabel.CENTER);
+		this.messageAccueilNoms.setFont(new Font("arial", Font.BOLD, 25));
+		this.billard.add(this.messageAccueilNoms);
+		
 		this.basButtons = new JPanel();
 		this.basButtons.setBackground(Color.LIGHT_GRAY);
 		this.bas.add(this.basButtons, BorderLayout.NORTH);
@@ -143,7 +160,7 @@ public class CadreAngryBalls extends JFrame implements VueBillard, Observateur{
 	}
 
 	public JTextField getPrésentation() {
-		return présentation;
+		return presentation;
 	}
 
 	public Billard getBillard() {
@@ -201,10 +218,14 @@ public class CadreAngryBalls extends JFrame implements VueBillard, Observateur{
 	public void switchButtons(){
 		this.basButtons.remove(billardModeButton);
 		this.basButtons.remove(normalModeButton);
+		this.billard.remove(messageAccueilNoms);
+		this.billard.remove(messageAccueilTitre);
+		this.billard.remove(messageAccueilProjet);
 		this.basButtons.add(this.arreterBilles);
 		this.basButtons.add(this.lancerBilles);
 		this.basButtons.add(this.resetBilles);
 		this.basCheckBox.add(this.normalMode);
+		this.haut.add(this.presentation);
 		this.basCheckBox.add(this.billardMode);
 		this.bas.revalidate();
 	}
