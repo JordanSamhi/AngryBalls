@@ -6,6 +6,7 @@ import mesmaths.geometrie.base.Vecteur;
 import projet.modele.Bille;
 import projet.modele.BilleNue;
 import projet.modele.decorateurs.BillePilotee;
+import projet.modele.decorateurs.Frottement;
 import projet.modele.decorateurs.RebondBord;
 
 public class BillardGame extends Mode{
@@ -39,6 +40,7 @@ public class BillardGame extends Mode{
 		
 		for(int i = 0 ; i < 11 ; i++) {
 			b[i] = new RebondBord(b[i]);
+			b[i] = new Frottement(b[i]);
 			b[i] = new BillePilotee(b[i]);
 			this.billes.add(b[i]);
 		}

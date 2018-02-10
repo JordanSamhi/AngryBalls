@@ -5,6 +5,7 @@ import projet.ecouteur.EcouteurBoutonArreter;
 import projet.ecouteur.EcouteurBoutonLancer;
 import projet.ecouteur.EcouteurBoutonReset;
 import projet.ecouteur.EcouteurNormalMode;
+import projet.ecouteur.EcouteurSourisBillard;
 import projet.vues.CadreAngryBalls;
 
 public class TestAngryBalls{
@@ -21,11 +22,14 @@ public class TestAngryBalls{
 		EcouteurBoutonReset écouteurBoutonReset = new EcouteurBoutonReset(animationBilles); 
 		EcouteurNormalMode ecouteurNormalMode = new EcouteurNormalMode(animationBilles);
 		EcouteurBillardMode ecouteurBillardMode = new EcouteurBillardMode(animationBilles);
+		EcouteurSourisBillard ecouteurSourisBillard = new EcouteurSourisBillard(animationBilles);
 
 		cadre.getLancerBilles().addActionListener(écouteurBoutonLancer);
 		cadre.getArrêterBilles().addActionListener(écouteurBoutonArrêter);
 		cadre.getResetBilles().addActionListener(écouteurBoutonReset);
 		cadre.getNormalMode().addItemListener(ecouteurNormalMode);
-		cadre.getBillardMode().addItemListener(ecouteurBillardMode); 
+		cadre.getBillardMode().addItemListener(ecouteurBillardMode);
+		cadre.getBillard().addMouseListener(ecouteurSourisBillard);
+		cadre.getBillard().addMouseMotionListener(ecouteurSourisBillard);
 	}
 }

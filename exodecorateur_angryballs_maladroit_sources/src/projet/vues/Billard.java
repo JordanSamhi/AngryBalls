@@ -1,8 +1,6 @@
 package projet.vues;
 
 import java.awt.Graphics;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
 import java.util.Vector;
 
 import javax.swing.JPanel;
@@ -10,13 +8,6 @@ import javax.swing.JPanel;
 import projet.modele.Bille;
 
 
-/**
- * responsable du dessin des billes
- * 
- *  ICI : IL N'Y A RIEN A CHANGER 
- *  
- * 
- * */
 public class Billard extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private Vector<Bille> billes;
@@ -35,7 +26,6 @@ public class Billard extends JPanel{
 	
 	public void setBilles(Vector<Bille> billes) {
 		this.billes = billes;
-		for(Bille bille : this.billes)
-			this.add(bille);
 	}
+
 }

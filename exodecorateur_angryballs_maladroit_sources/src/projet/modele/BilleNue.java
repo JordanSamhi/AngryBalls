@@ -2,6 +2,7 @@ package projet.modele;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
 import java.util.Vector;
 
 import mesmaths.cinematique.Cinematique;
@@ -99,5 +100,26 @@ public class BilleNue extends Bille {
 	@Override
 	public void setAcceleration(Vecteur acceleration) {
 		this.accélération = acceleration;
+	}
+
+	@Override
+	public boolean pointIsInsideBille(Vecteur point) {
+		double distance = Math.sqrt(Math.pow(point.x - this.getPosition().x, 2) + Math.pow(point.y - this.getPosition().y, 2));
+		return distance < this.getRayon();
+	}
+
+	@Override
+	public void handleMousePressed(MouseEvent e) {
+		// Do nothing
+	}
+
+	@Override
+	public void handleMouseDragged(MouseEvent e) {
+		// Do nothing
+	}
+
+	@Override
+	public void handleMouseReleased(MouseEvent e) {
+		// Do nothing
 	}
 }

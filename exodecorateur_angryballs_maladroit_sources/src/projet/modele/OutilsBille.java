@@ -50,7 +50,6 @@ public class OutilsBille
 	
 	public static  boolean gestionCollisionBilleBille(Bille cetteBille, Vector<Bille> billes){
 		Vector<Bille> autresBilles = OutilsBille.autresBilles(cetteBille, billes);
-		
 		for(Bille bille : autresBilles) {
 			if(Collisions.CollisionBilleBille(cetteBille.getPosition(), cetteBille.getRayon(), cetteBille.getVitesse(), cetteBille.masse(),
 					bille.getPosition(), bille.getRayon(), bille.getVitesse(), bille.masse()))

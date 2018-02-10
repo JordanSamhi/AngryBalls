@@ -16,7 +16,9 @@ public class AttractionUniverselle extends BilleDecorateur {
 	@Override
 	public void gestionAccélération(Vector<Bille> billes){
 		this.getNext().gestionAccélération(billes);
-		this.getAccélération().set(Vecteur.VECTEURNUL);
+		this.getAccélération().set(new Vecteur());
+		// Pourquoi VECTEUR NUL FAIT TOUT BUGUER ?????????????
+		//this.getAccélération().set(Vecteur.VECTEURNUL);
 		this.getAccélération().ajoute(OutilsBille.gestionAccélérationNewton(this, billes));
 	}
 }

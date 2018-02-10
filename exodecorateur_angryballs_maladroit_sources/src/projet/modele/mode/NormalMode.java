@@ -6,7 +6,6 @@ import mesmaths.geometrie.base.Vecteur;
 import projet.modele.Bille;
 import projet.modele.BilleNue;
 import projet.modele.decorateurs.AttractionUniverselle;
-import projet.modele.decorateurs.BillePilotee;
 import projet.modele.decorateurs.Frottement;
 import projet.modele.decorateurs.MouvementRectiligneUniforme;
 import projet.modele.decorateurs.PasseATravers;
@@ -35,6 +34,7 @@ public class NormalMode extends Mode{
 		b3 = new AttractionUniverselle(b3);
 		b3 = new Frottement(b3);
 		b3 = new RebondBord(b3);
+		
 		
 		b4 = new BilleNue(Vecteur.créationAléatoire(0, 0, this.xMax, this.yMax), this.rayon, Color.yellow);
 		b4 = new Pesanteur(b4, this.pesanteur);

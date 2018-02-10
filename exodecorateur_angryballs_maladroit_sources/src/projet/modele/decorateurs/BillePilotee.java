@@ -1,33 +1,22 @@
 package projet.modele.decorateurs;
 
-import java.awt.Color;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
 
-import javax.swing.BorderFactory;
-
-import mesmaths.geometrie.base.Vecteur;
 import projet.modele.Bille;
 import projet.modele.BilleDecorateur;
 import projet.modele.etats.ControleurAttrapable;
 import projet.modele.etats.ControleurAttrapee;
 import projet.modele.etats.ControleurEtatBillePilotee;
 
-public class BillePilotee extends BilleDecorateur implements MouseMotionListener{
+public class BillePilotee extends BilleDecorateur{
 	
 	ControleurEtatBillePilotee controleurCourant;
 	ControleurAttrapable controleurAttrapable;
 	ControleurAttrapee controleurAttrapee;
 	
-	int x, y;
-
 	public BillePilotee(Bille next) {
 		super(next);
-		//this.genererGrapheControleurs();
-		this.addMouseMotionListener(this);
-		this.setSize((int) this.getDiametre(), (int) this.getDiametre());
-		this.setLocation((int) this.getPosition().x - (int) this.getRayon(), (int) this.getPosition().y - (int) this.getRayon());
-		this.setBorder(BorderFactory.createLineBorder(Color.black));
+		this.genererGrapheControleurs();
 	}
 
 	private void genererGrapheControleurs() {
@@ -38,14 +27,33 @@ public class BillePilotee extends BilleDecorateur implements MouseMotionListener
 		this.controleurCourant = this.controleurAttrapable;
 	}
 	
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		x = e.getX();
-		y = e.getY();
-		this.setPosition(this.getPosition().somme(new Vecteur(e.getX(),e.getY())));
+	public void handleMousePressed(MouseEvent e) {
+		this.getControleurCourant().handleMousePressed(e);
+	}
+	
+	public void handleMouseDragged(MouseEvent e) {
+		this.getControleurCourant().handleMouseDragged(e);
+	}
+	
+	public void handleMouseReleased(MouseEvent e) {
+		this.getControleurCourant().handleMouseReleased(e);
 	}
 
-	@Override
-	public void mouseMoved(MouseEvent e) {
+	public ControleurEtatBillePilotee getControleurCourant() {
+		return controleurCourant;
 	}
+
+	public ControleurAttrapable getControleurAttrapable() {
+		return controleurAttrapable;
+	}
+
+	public ControleurAttrapee getControleurAttrapee() {
+		return controleurAttrapee;
+	}
+
+	public void setControleurCourant(ControleurEtatBillePilotee controleurCourant) {
+		this.controleurCourant = controleurCourant;
+	}
+	
+	
 }

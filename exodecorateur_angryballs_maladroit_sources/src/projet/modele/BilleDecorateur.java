@@ -2,6 +2,7 @@ package projet.modele;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
 import java.util.Vector;
 
 import mesmaths.geometrie.base.Vecteur;
@@ -86,5 +87,21 @@ public abstract class BilleDecorateur extends Bille {
 	public void collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur,
 			double hauteur) {
 		this.getNext().collisionContour(abscisseCoinHautGauche, ordonnéeCoinHautGauche, largeur, hauteur);
+	}
+	
+	public boolean pointIsInsideBille(Vecteur point) {
+		return this.getNext().pointIsInsideBille(point);
+	}
+	
+	public void handleMousePressed(MouseEvent e) {
+		this.getNext().handleMousePressed(e);
+	}
+	
+	public void handleMouseDragged(MouseEvent e) {
+		this.getNext().handleMouseDragged(e);
+	}
+	
+	public void handleMouseReleased(MouseEvent e) {
+		this.getNext().handleMouseReleased(e);
 	}
 }

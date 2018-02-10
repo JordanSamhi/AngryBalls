@@ -16,12 +16,12 @@ import projet.vues.VueBillard;
  * */
 public class AnimationBilles  implements Runnable{
 
-	Vector<Bille> billes; 
-	VueBillard vueBillard;
+	private Vector<Bille> billes; 
+	private VueBillard vueBillard;
 	private Thread thread;
 	private final double deltaT = 5;
 	private final double vMax = 0.1;
-	Mode mode;
+	private Mode mode;
 
 	public AnimationBilles(VueBillard vueBillard){
 		this.billes = new Vector<Bille>();
@@ -87,8 +87,7 @@ public class AnimationBilles  implements Runnable{
 	
 	public void resetAnimation(){
 		this.arrêterAnimation();
-		this.mode.genererBilles(this.vueBillard);
-		this.billes = this.mode.getBilles();
+		this.genererBilles();
 		this.lancerAnimation();
 	}
 
@@ -106,11 +105,15 @@ public class AnimationBilles  implements Runnable{
 		if(this.vueBillard.isDisabledResetButton())
 			this.vueBillard.enableResetButton();
 		this.arrêterAnimation();
-		this.mode.genererBilles(this.vueBillard);
-		this.billes = this.mode.getBilles();
+		this.genererBilles();
 		this.vueBillard.setBillardBilles(this.billes);
 		this.vueBillard.setBackgroundColor(mode.getColorTable());
 		this.lancerAnimation();
+	}
+	
+	private void genererBilles() {
+		this.mode.genererBilles(this.vueBillard);
+		this.billes = this.mode.getBilles();
 	}
 	
 	public double getDeltaT() {
@@ -120,4 +123,10 @@ public class AnimationBilles  implements Runnable{
 	public double getvMax() {
 		return vMax;
 	}
+
+	public Vector<Bille> getBilles() {
+		return billes;
+	}
+	
+	
 }
