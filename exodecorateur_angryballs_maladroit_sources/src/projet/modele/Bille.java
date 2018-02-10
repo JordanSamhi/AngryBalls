@@ -18,7 +18,7 @@ public abstract class Bille{
 	public abstract double masse();
 	public abstract void déplacer( double deltaT);
 	public abstract boolean gestionCollisionBilleBille(Vector<Bille> billes);
-	public abstract void collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur, double hauteur);
+	public abstract boolean collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur, double hauteur);
 	public abstract void dessine (Graphics g);
 	public abstract void setVitesse(Vecteur vitesse);
 	public abstract void setPosition(Vecteur position);
@@ -36,4 +36,5 @@ public abstract class Bille{
 	public double getDiametre() {
 		return 2 * this.getRayon();
 	}
+	
 }

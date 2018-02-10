@@ -21,3 +21,4 @@ public class MouseEventPressed extends MouseEventExpertCOR {
 		return false;
 	}
 }
+

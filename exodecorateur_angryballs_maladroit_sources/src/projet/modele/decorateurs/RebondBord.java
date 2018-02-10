@@ -11,9 +11,9 @@ public class RebondBord extends BilleDecorateur {
 	}
 
 	@Override
-	public void collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur, double hauteur) {
+	public boolean collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur, double hauteur) {
 		this.getNext().collisionContour(abscisseCoinHautGauche, ordonnéeCoinHautGauche, largeur, hauteur);
-		Collisions.collisionBilleContourAvecRebond( this.getPosition(), this.getRayon(), 
+		return Collisions.collisionBilleContourAvecRebond( this.getPosition(), this.getRayon(), 
 				this.getVitesse(), abscisseCoinHautGauche, ordonnéeCoinHautGauche, largeur, hauteur);
 	}
 

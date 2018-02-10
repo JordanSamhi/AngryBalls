@@ -84,9 +84,9 @@ public abstract class BilleDecorateur extends Bille {
 		this.getNext().gestionAccélération(billes);
 	}
 	
-	public void collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur,
+	public boolean collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur,
 			double hauteur) {
-		this.getNext().collisionContour(abscisseCoinHautGauche, ordonnéeCoinHautGauche, largeur, hauteur);
+		return this.getNext().collisionContour(abscisseCoinHautGauche, ordonnéeCoinHautGauche, largeur, hauteur);
 	}
 	
 	public boolean pointIsInsideBille(Vecteur point) {

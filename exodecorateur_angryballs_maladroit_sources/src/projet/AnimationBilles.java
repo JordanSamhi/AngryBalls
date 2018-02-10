@@ -7,6 +7,8 @@ import projet.modele.mode.BillardGame;
 import projet.modele.mode.Mode;
 import projet.modele.mode.NormalMode;
 import projet.vues.VueBillard;
+import sounds.CollisionBilleSound;
+import sounds.CollisionBordSound;
 
 /**
  * responsable de l'animation des billes, c-à-d responsable du mouvement de la liste des billes. met perpétuellement à jour les billes. 
@@ -43,8 +45,8 @@ public class AnimationBilles implements Runnable{
 				for(Bille billeCourante : this.billes){
 					billeCourante.déplacer(this.getDeltaT());
 					billeCourante.gestionAccélération(this.billes);
-					billeCourante.gestionCollisionBilleBille(this.billes);
-					billeCourante.collisionContour(0, 0, vueBillard.largeurBillard(), vueBillard.hauteurBillard());
+					CollisionBilleSound.getInstance().playSound(billeCourante.gestionCollisionBilleBille(this.billes));
+					CollisionBordSound.getInstance().playSound(billeCourante.collisionContour(0, 0, vueBillard.largeurBillard(), vueBillard.hauteurBillard()));
 				}
 				vueBillard.miseAJour();
 				Thread.sleep((int)this.getDeltaT());

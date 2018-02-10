@@ -84,8 +84,10 @@ public class BilleNue extends Bille {
 	}
 
 	@Override
-	public void collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur,
-			double hauteur) {}
+	public boolean collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur,
+			double hauteur){
+		return false;
+	}
 
 	@Override
 	public void setVitesse(Vecteur vitesse) {
