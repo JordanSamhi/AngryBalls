@@ -14,7 +14,7 @@ import projet.vues.VueBillard;
  * 
  * ICI : IL N'Y A RIEN A CHANGER j
  * */
-public class AnimationBilles  implements Runnable{
+public class AnimationBilles implements Runnable{
 
 	private Vector<Bille> billes; 
 	private VueBillard vueBillard;
@@ -26,12 +26,14 @@ public class AnimationBilles  implements Runnable{
 	public AnimationBilles(VueBillard vueBillard){
 		this.billes = new Vector<Bille>();
 		this.vueBillard = vueBillard;
+		this.vueBillard.setAnimationBilles(this);
 		this.thread = null;
 	}
 	
 	public AnimationBilles(Vector<Bille> billes, VueBillard vueBillard){
 		this.billes = billes;
 		this.vueBillard = vueBillard;
+		this.vueBillard.setAnimationBilles(this);
 		this.thread = null;
 	}
 
@@ -51,7 +53,7 @@ public class AnimationBilles  implements Runnable{
 		catch (InterruptedException e){}
 	}
 
-	static double maxVitessesCarrées(Vector<Bille> billes){
+	public static double maxVitessesCarrées(Vector<Bille> billes){
 		double vitesse2Max = 0;
 
 		for(Bille bille : billes)
@@ -60,7 +62,7 @@ public class AnimationBilles  implements Runnable{
 		return vitesse2Max;
 	}
 
-	static double minRayons(Vector<Bille> billes){
+	public static double minRayons(Vector<Bille> billes){
 		double rayonMin;
 		rayonMin = Double.MAX_VALUE;
 		
@@ -85,6 +87,18 @@ public class AnimationBilles  implements Runnable{
 		}
 	}
 	
+	public void initNormalMode() {
+		this.vueBillard.switchButtons();
+		this.vueBillard.checkNormalRadio();
+		this.setNormalMode();
+	}
+	
+	public void initBillardMode() {
+		this.vueBillard.switchButtons();
+		this.vueBillard.checkBillardRadio();
+		this.setBillardMode();
+	}
+
 	public void resetAnimation(){
 		this.arrêterAnimation();
 		this.genererBilles();
@@ -102,8 +116,6 @@ public class AnimationBilles  implements Runnable{
 	}
 	
 	public void initializeMode(){
-		if(this.vueBillard.isDisabledResetButton())
-			this.vueBillard.enableResetButton();
 		this.arrêterAnimation();
 		this.genererBilles();
 		this.vueBillard.setBillardBilles(this.billes);

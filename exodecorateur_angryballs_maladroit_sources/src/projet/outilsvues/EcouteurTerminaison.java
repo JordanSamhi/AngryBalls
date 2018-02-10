@@ -1,4 +1,4 @@
-package outilsvues;
+package projet.outilsvues;
 
 import java.awt.Window;
 import java.awt.event.WindowEvent;

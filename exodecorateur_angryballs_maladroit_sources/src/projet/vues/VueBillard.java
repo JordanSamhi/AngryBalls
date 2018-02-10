@@ -3,6 +3,7 @@ package projet.vues;
 import java.awt.Color;
 import java.util.Vector;
 
+import projet.AnimationBilles;
 import projet.modele.Bille;
 
 /**
@@ -23,4 +24,8 @@ public interface VueBillard{
 	public void enableResetButton();
 	public boolean isDisabledResetButton();
 	public void setBackgroundColor(Color c);
+	public void setAnimationBilles(AnimationBilles animationBilles);
+	public void switchButtons();
+	public void checkNormalRadio();
+	public void checkBillardRadio();
 }

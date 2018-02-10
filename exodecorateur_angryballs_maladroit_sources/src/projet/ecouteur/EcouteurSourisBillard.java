@@ -4,45 +4,48 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.event.MouseInputListener;
 
-import projet.AnimationBilles;
-import projet.modele.Bille;
+import projet.vues.ecoutables.Billard;
 
 
-public class EcouteurSourisBillard implements MouseInputListener{
+public class EcouteurSourisBillard extends Ecouteur implements MouseInputListener{
 	
-	AnimationBilles animationBilles;
 
-	public EcouteurSourisBillard(AnimationBilles animationBilles) {
-		this.animationBilles = animationBilles;
+	public EcouteurSourisBillard(Billard billard) {
+		super(billard);
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e){
-		for(Bille bille : this.animationBilles.getBilles())
-			bille.handleMousePressed(e);
+		this.getObservable().notifyObservers(e);
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e){
-		for(Bille bille : this.animationBilles.getBilles())
-			bille.handleMouseReleased(e);
+		this.getObservable().notifyObservers(e);
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent e){
-		for(Bille bille : this.animationBilles.getBilles())
-			bille.handleMouseDragged(e);
+		this.getObservable().notifyObservers(e);
 	}
 	
 	@Override
-	public void mouseClicked(MouseEvent e){}
+	public void mouseClicked(MouseEvent e){
+		this.getObservable().notifyObservers(e);
+	}
 
 	@Override
-	public void mouseEntered(MouseEvent e){}
+	public void mouseEntered(MouseEvent e){
+		this.getObservable().notifyObservers(e);
+	}
 
 	@Override
-	public void mouseExited(MouseEvent e){}
+	public void mouseExited(MouseEvent e){
+		this.getObservable().notifyObservers(e);
+	}
 
 	@Override
-	public void mouseMoved(MouseEvent e){}
+	public void mouseMoved(MouseEvent e){
+		this.getObservable().notifyObservers(e);
+	}
 }

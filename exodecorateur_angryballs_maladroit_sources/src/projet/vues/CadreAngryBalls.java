@@ -1,5 +1,6 @@
 package projet.vues;
 
+import java.awt.AWTEvent;
 import java.awt.BorderLayout;
 import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
@@ -7,14 +8,25 @@ import java.awt.Color;
 import java.awt.HeadlessException;
 import java.util.Vector;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import outilsvues.EcouteurTerminaison;
-import outilsvues.Outils;
+import projet.AnimationBilles;
 import projet.modele.Bille;
+import projet.outilsvues.EcouteurTerminaison;
+import projet.outilsvues.Outils;
+import projet.vues.ecoutables.Billard;
+import projet.vues.ecoutables.Ecoutable;
+import projet.vues.ecoutables.Checkbox.CheckboxBillardMode;
+import projet.vues.ecoutables.Checkbox.CheckboxNormalMode;
+import projet.vues.ecoutables.Checkbox.CheckboxPerso;
+import projet.vues.ecoutables.boutons.Bouton;
+import projet.vues.ecoutables.boutons.BoutonArreter;
+import projet.vues.ecoutables.boutons.BoutonBillardMode;
+import projet.vues.ecoutables.boutons.BoutonLancer;
+import projet.vues.ecoutables.boutons.BoutonNormalMode;
+import projet.vues.ecoutables.boutons.BoutonReset;
 /**
  * Vue dessinant les billes et contenant les 3 boutons de contrôle (arrêt du programme, lancer les billes, arréter les billes) 
  * 
@@ -22,14 +34,15 @@ import projet.modele.Bille;
  *  
  * 
  * */
-public class CadreAngryBalls extends JFrame implements VueBillard{
+public class CadreAngryBalls extends JFrame implements VueBillard, Observateur{
 	private static final long serialVersionUID = 1L;
 	private JTextField présentation;
 	private Billard billard;
-	private JButton lancerBilles, arrêterBilles, resetBilles;
+	private Bouton lancerBilles, arreterBilles, resetBilles, normalModeButton, billardModeButton;
 	private JPanel haut, centre, bas, basButtons, basCheckBox;
 	private CheckboxGroup choixTypeVue;
-	private Checkbox normalMode, billardMode;
+	private CheckboxPerso normalMode, billardMode;
+	private AnimationBilles animationBilles;
 
 	EcouteurTerminaison ecouteurTerminaison;
 
@@ -53,30 +66,48 @@ public class CadreAngryBalls extends JFrame implements VueBillard{
 		this.haut.add(this.présentation);
 		
 		this.billard = new Billard();
+		this.billard.addObserver(this);
 		this.getContentPane().add(this.billard);
 
 		this.basButtons = new JPanel();
 		this.basButtons.setBackground(Color.LIGHT_GRAY);
 		this.bas.add(this.basButtons, BorderLayout.NORTH);
-		this.lancerBilles = new JButton("lancer les billes");
-		this.arrêterBilles = new JButton("arrêter les billes");
-		this.resetBilles = new JButton("reset scene");
-		this.resetBilles.setEnabled(false);
-		this.basButtons.add(this.arrêterBilles);
-		this.basButtons.add(this.lancerBilles);
-		this.basButtons.add(this.resetBilles);
-
-		this.choixTypeVue = new CheckboxGroup(); 
-		this.normalMode = new Checkbox("Mode normal");
-		this.billardMode = new Checkbox("Mode Billard");
+		
+		this.lancerBilles = new BoutonLancer("Lancer les billes");
+		this.lancerBilles.addObserver(this);
+		
+		this.arreterBilles = new BoutonArreter("Arrêter les billes");
+		this.arreterBilles.addObserver(this);
+		
+		this.resetBilles = new BoutonReset("Reset scene");
+		this.resetBilles.addObserver(this);
+		
+		this.normalModeButton = new BoutonNormalMode("Mode normal");
+		this.normalModeButton.addObserver(this);
+		
+		this.billardModeButton = new BoutonBillardMode("Mode billard");
+		this.billardModeButton.addObserver(this);
+		
+		this.basButtons.add(this.normalModeButton);
+		this.basButtons.add(this.billardModeButton);
+		
+		 
+		this.normalMode = new CheckboxNormalMode("Mode normal");
+		this.normalMode.addObserver(this);
+		
+		this.billardMode = new CheckboxBillardMode("Mode Billard");
+		this.billardMode.addObserver(this);
+		
+		this.choixTypeVue = new CheckboxGroup();
 		this.normalMode.setCheckboxGroup(choixTypeVue);
 		this.billardMode.setCheckboxGroup(choixTypeVue);
+		
 		this.basCheckBox = new JPanel();
 		this.basCheckBox.setBackground(Color.LIGHT_GRAY);
-		this.basCheckBox.add(this.normalMode);
-		this.basCheckBox.add(this.billardMode);
 		this.bas.add(this.basCheckBox, BorderLayout.SOUTH);
+		
 	}
+
 
 	public double largeurBillard() {
 		return this.billard.getWidth();
@@ -119,18 +150,6 @@ public class CadreAngryBalls extends JFrame implements VueBillard{
 		return billard;
 	}
 
-	public JButton getLancerBilles() {
-		return lancerBilles;
-	}
-
-	public JButton getArrêterBilles() {
-		return arrêterBilles;
-	}
-
-	public JButton getResetBilles() {
-		return resetBilles;
-	}
-
 	public JPanel getHaut() {
 		return haut;
 	}
@@ -167,4 +186,38 @@ public class CadreAngryBalls extends JFrame implements VueBillard{
 	public void setBackgroundColor(Color c) {
 		this.billard.setBackground(c);
 	}
+
+	@Override
+	public void update(Ecoutable ecoutable, AWTEvent e) {
+		ecoutable.action(this.animationBilles, e);
+	}
+
+	@Override
+	public void setAnimationBilles(AnimationBilles animationBilles) {
+		this.animationBilles = animationBilles;
+	}
+
+	@Override
+	public void switchButtons(){
+		this.basButtons.remove(billardModeButton);
+		this.basButtons.remove(normalModeButton);
+		this.basButtons.add(this.arreterBilles);
+		this.basButtons.add(this.lancerBilles);
+		this.basButtons.add(this.resetBilles);
+		this.basCheckBox.add(this.normalMode);
+		this.basCheckBox.add(this.billardMode);
+		this.bas.revalidate();
+	}
+
+	@Override
+	public void checkNormalRadio() {
+		this.normalMode.setState(true);
+	}
+
+	@Override
+	public void checkBillardRadio() {
+		this.billardMode.setState(true);
+	}
+
+
 }

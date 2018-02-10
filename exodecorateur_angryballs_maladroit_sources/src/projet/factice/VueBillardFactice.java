@@ -1,8 +1,9 @@
-package projet;
+package projet.factice;
 
 import java.awt.Color;
 import java.util.Vector;
 
+import projet.AnimationBilles;
 import projet.modele.Bille;
 import projet.vues.VueBillard;
 
@@ -57,6 +58,30 @@ public class VueBillardFactice implements VueBillard
 
 	@Override
 	public void setBackgroundColor(Color c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setAnimationBilles(AnimationBilles animationBilles) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void switchButtons() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void checkNormalRadio() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void checkBillardRadio() {
 		// TODO Auto-generated method stub
 		
 	}
