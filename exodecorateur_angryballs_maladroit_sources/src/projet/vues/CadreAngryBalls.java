@@ -13,7 +13,6 @@ import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 import projet.AnimationBilles;
 import projet.modele.Bille;
@@ -40,7 +39,6 @@ import projet.vues.ecoutables.boutons.BoutonReset;
  * */
 public class CadreAngryBalls extends JFrame implements VueBillard, Observateur{
 	private static final long serialVersionUID = 1L;
-	private JTextField presentation;
 	private JLabel messageAccueilProjet, messageAccueilNoms, messageAccueilTitre;
 	private Billard billard;
 	private Bouton lancerBilles, arreterBilles, resetBilles, normalModeButton, billardModeButton, muteUnMuteBouton;
@@ -65,10 +63,6 @@ public class CadreAngryBalls extends JFrame implements VueBillard, Observateur{
 		this.bas = new JPanel(); this.bas.setBackground(Color.LIGHT_GRAY);
 		this.bas.setLayout(new BorderLayout());
 		this.add(this.bas,BorderLayout.SOUTH);
-		
-		this.presentation = new JTextField(message1, 40);
-		this.presentation.setEditable(false);
-		this.presentation.setHorizontalAlignment(JTextField.CENTER);
 		
 		this.billard = new Billard();
 		this.billard.addObserver(this);
@@ -109,9 +103,6 @@ public class CadreAngryBalls extends JFrame implements VueBillard, Observateur{
 		this.billardModeButton = new BoutonBillardMode("Mode billard");
 		this.billardModeButton.addObserver(this);
 		
-		this.basButtons.add(this.normalModeButton);
-		this.basButtons.add(this.billardModeButton);
-		
 		this.normalMode = new CheckboxNormalMode("Mode normal");
 		this.normalMode.addObserver(this);
 		
@@ -124,8 +115,15 @@ public class CadreAngryBalls extends JFrame implements VueBillard, Observateur{
 		
 		this.basCheckBox = new JPanel();
 		this.basCheckBox.setBackground(Color.LIGHT_GRAY);
+		
 		this.bas.add(this.basCheckBox, BorderLayout.SOUTH);
 		
+		this.basButtons.add(this.arreterBilles);
+		this.basButtons.add(this.lancerBilles);
+		this.basButtons.add(this.resetBilles);
+		this.basButtons.add(muteUnMuteBouton);
+		this.basCheckBox.add(this.normalModeButton);
+		this.basCheckBox.add(this.billardModeButton);
 	}
 
 
@@ -160,10 +158,6 @@ public class CadreAngryBalls extends JFrame implements VueBillard, Observateur{
 	@Override
 	public boolean isDisabledResetButton() {
 		return !this.resetBilles.isEnabled();
-	}
-
-	public JTextField getPrésentation() {
-		return presentation;
 	}
 
 	public Billard getBillard() {
@@ -219,17 +213,12 @@ public class CadreAngryBalls extends JFrame implements VueBillard, Observateur{
 
 	@Override
 	public void switchButtons(){
-		this.basButtons.remove(billardModeButton);
-		this.basButtons.remove(normalModeButton);
+		this.basCheckBox.remove(billardModeButton);
+		this.basCheckBox.remove(normalModeButton);
 		this.billard.remove(messageAccueilNoms);
 		this.billard.remove(messageAccueilTitre);
 		this.billard.remove(messageAccueilProjet);
-		this.basButtons.add(this.arreterBilles);
-		this.basButtons.add(this.lancerBilles);
-		this.basButtons.add(this.resetBilles);
-		this.basButtons.add(muteUnMuteBouton);
 		this.basCheckBox.add(this.normalMode);
-		this.haut.add(this.presentation);
 		this.basCheckBox.add(this.billardMode);
 		this.bas.revalidate();
 	}

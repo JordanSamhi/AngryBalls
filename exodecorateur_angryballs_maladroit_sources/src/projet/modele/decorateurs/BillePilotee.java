@@ -54,6 +54,4 @@ public class BillePilotee extends BilleDecorateur{
 	public void setControleurCourant(ControleurEtatBillePilotee controleurCourant) {
 		this.controleurCourant = controleurCourant;
 	}
-	
-	
 }

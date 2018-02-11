@@ -36,5 +36,4 @@ public abstract class Bille{
 	public double getDiametre() {
 		return 2 * this.getRayon();
 	}
-	
 }

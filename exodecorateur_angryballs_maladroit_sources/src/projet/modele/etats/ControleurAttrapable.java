@@ -26,7 +26,7 @@ public class ControleurAttrapable extends ControleurEtatBillePilotee {
 			ControleurEtatBillePilotee.positionSourisActuelle = ControleurEtatBillePilotee.positionSourisPressed;
 			ControleurEtatBillePilotee.pressedDate = e.getWhen();
 			ControleurEtatBillePilotee.actualDate = ControleurEtatBillePilotee.pressedDate;
-			this.getBille().setVitesse(Vecteur.VECTEURNUL);
+			this.getBille().setVitesse(new Vecteur());
 			ControleurEtatBillePilotee.positionInitialeBille = this.getBille().getPosition();
 			ControleurEtatBillePilotee.differenceSourisPressedPositionBilleInitiale = ControleurEtatBillePilotee.positionSourisPressed.difference(ControleurEtatBillePilotee.positionInitialeBille);
 			this.getBille().setControleurCourant(this.getNext());

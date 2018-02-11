@@ -69,12 +69,6 @@ public class VueBillardFactice implements VueBillard
 	}
 
 	@Override
-	public void switchButtons() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void checkNormalRadio() {
 		// TODO Auto-generated method stub
 		
@@ -82,6 +76,12 @@ public class VueBillardFactice implements VueBillard
 
 	@Override
 	public void checkBillardRadio() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void switchButtons() {
 		// TODO Auto-generated method stub
 		
 	}
