@@ -44,18 +44,22 @@ public class OutilsBille
 	 * 
 	 * Le comportement par défaut est le choc parfaitement élastique (c-à-d rebond sans amortissement)
 	 * 
-	 * @return true si il y a collision et dans ce cas les positions et vecteurs vitesses des 2 billes impliquées dans le choc sont modifiées
-	 * si renvoie false, il n'y a pas de collision et les billes sont laissées intactes 
+	 * @return null si pas de collision
+	 * 			vecteur vitesse correspondant à la plus grande vitesse des deux billes en collision
 	 * */
 	
-	public static  boolean gestionCollisionBilleBille(Bille cetteBille, Vector<Bille> billes){
+	public static Vecteur gestionCollisionBilleBille(Bille cetteBille, Vector<Bille> billes){
 		Vector<Bille> autresBilles = OutilsBille.autresBilles(cetteBille, billes);
 		for(Bille bille : autresBilles) {
 			if(Collisions.CollisionBilleBille(cetteBille.getPosition(), cetteBille.getRayon(), cetteBille.getVitesse(), cetteBille.masse(),
-					bille.getPosition(), bille.getRayon(), bille.getVitesse(), bille.masse()))
-				return true;
+					bille.getPosition(), bille.getRayon(), bille.getVitesse(), bille.masse())){
+				if(cetteBille.getVitesse().norme() > bille.getVitesse().norme())
+					return cetteBille.getVitesse();
+				return bille.getVitesse();
+			}
+				
 		}
-		return false;
+		return null;
 	}
 
 

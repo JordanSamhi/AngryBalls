@@ -76,7 +76,7 @@ public abstract class BilleDecorateur extends Bille {
 	}
 	
 	@Override
-	public boolean gestionCollisionBilleBille(Vector<Bille> billes){
+	public Vecteur gestionCollisionBilleBille(Vector<Bille> billes){
 		return this.getNext().gestionCollisionBilleBille(billes);
 	}
 	

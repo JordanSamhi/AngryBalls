@@ -17,7 +17,7 @@ public abstract class Bille{
 	public abstract int getClef();
 	public abstract double masse();
 	public abstract void déplacer( double deltaT);
-	public abstract boolean gestionCollisionBilleBille(Vector<Bille> billes);
+	public abstract Vecteur gestionCollisionBilleBille(Vector<Bille> billes);
 	public abstract boolean collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur, double hauteur);
 	public abstract void dessine (Graphics g);
 	public abstract void setVitesse(Vecteur vitesse);

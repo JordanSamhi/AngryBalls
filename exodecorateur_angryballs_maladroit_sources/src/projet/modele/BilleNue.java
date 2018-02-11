@@ -79,7 +79,7 @@ public class BilleNue extends Bille {
 	}
 
 	@Override
-	public boolean gestionCollisionBilleBille(Vector<Bille> billes){
+	public Vecteur gestionCollisionBilleBille(Vector<Bille> billes){
 		return OutilsBille.gestionCollisionBilleBille(this, billes);
 	}
 
