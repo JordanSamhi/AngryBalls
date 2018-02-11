@@ -55,6 +55,4 @@ public class ControleurAttrapee extends ControleurEtatBillePilotee {
 	public void handleMouseReleased(MouseEvent e){
 		this.bille.setControleurCourant(getNext());
 	}
-
-
 }

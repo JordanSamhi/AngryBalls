@@ -100,7 +100,8 @@ public class AnimationBilles implements Runnable{
 
 	public void resetAnimation(){
 		this.arrêterAnimation();
-		this.genererBilles();
+		if(this.getBilles().size() != 0)
+			this.genererBilles();
 		this.lancerAnimation();
 	}
 
