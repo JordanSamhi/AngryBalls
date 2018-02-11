@@ -7,14 +7,11 @@ import projet.modele.mode.BillardGame;
 import projet.modele.mode.Mode;
 import projet.modele.mode.NormalMode;
 import projet.vues.VueBillard;
-import sounds.CollisionBilleSound;
-import sounds.CollisionBordSound;
+import sounds.Sound;
 
 /**
  * responsable de l'animation des billes, c-à-d responsable du mouvement de la liste des billes. met perpétuellement à jour les billes. 
  * gère le délai entre 2 mises à jour (deltaT) et prévient la vue responsable du dessin des billes qu'il faut mettre à jour la scène
- * 
- * ICI : IL N'Y A RIEN A CHANGER j
  * */
 public class AnimationBilles implements Runnable{
 
@@ -45,8 +42,8 @@ public class AnimationBilles implements Runnable{
 				for(Bille billeCourante : this.billes){
 					billeCourante.déplacer(this.getDeltaT());
 					billeCourante.gestionAccélération(this.billes);
-					CollisionBilleSound.getInstance().playSound(billeCourante.gestionCollisionBilleBille(this.billes));
-					CollisionBordSound.getInstance().playSound(billeCourante.collisionContour(0, 0, vueBillard.largeurBillard(), vueBillard.hauteurBillard()));
+					Sound.getInstance().playSoundBilleBille(billeCourante.gestionCollisionBilleBille(this.billes));
+					Sound.getInstance().playSoundBilleBord(billeCourante.collisionContour(0, 0, vueBillard.largeurBillard(), vueBillard.hauteurBillard()));
 				}
 				vueBillard.miseAJour();
 				Thread.sleep((int)this.getDeltaT());
@@ -142,5 +139,7 @@ public class AnimationBilles implements Runnable{
 		return billes;
 	}
 	
-	
+	public void muteUnMute() {
+		Sound.getInstance().muteUnMute();
+	}
 }

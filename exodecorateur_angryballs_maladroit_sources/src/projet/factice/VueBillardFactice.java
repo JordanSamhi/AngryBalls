@@ -85,5 +85,4 @@ public class VueBillardFactice implements VueBillard
 		// TODO Auto-generated method stub
 		
 	}
-
 }

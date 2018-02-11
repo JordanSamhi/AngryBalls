@@ -4,18 +4,42 @@ import java.applet.Applet;
 import java.applet.AudioClip;
 import java.net.URL;
 
-public abstract class Sound {
+public class Sound {
 
-	protected URL url;
-	protected AudioClip sound;
+	private URL urlSonBilleBord, urlSonBilleBille;
+	private AudioClip soundBilleBord, soundBilleBille;
+	private boolean mute;
+	private static Sound instance = null;
 	
-	protected Sound(String file) {
-		url = this.getClass().getClassLoader().getResource(file);
-		sound = Applet.newAudioClip(url);
+	private Sound() {
+		urlSonBilleBord = this.getClass().getClassLoader().getResource("sounds/billeBord.wav");
+		urlSonBilleBille = this.getClass().getClassLoader().getResource("sounds/collisionBille.wav");
+		soundBilleBord = Applet.newAudioClip(urlSonBilleBord);
+		soundBilleBille = Applet.newAudioClip(urlSonBilleBille);
+		this.mute = false;
+	}
+	
+	public static Sound getInstance() {
+		if(instance == null)
+			instance = new Sound();
+		return instance;
 	}
 
-	public void playSound(boolean collision){
-		if(collision)
+	public void playSoundBilleBord(boolean collision){
+		this.playSound(soundBilleBord, collision);
+	}
+	
+	public void playSoundBilleBille(boolean collision){
+		this.playSound(soundBilleBille, collision);
+	}
+	
+	private void playSound(AudioClip sound, boolean collision) {
+		if(collision && !mute) {
 			sound.play();
+		}
+	}
+	
+	public void muteUnMute() {
+		this.mute = !this.mute;
 	}
 }
