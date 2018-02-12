@@ -34,4 +34,10 @@ public abstract class Bille{
 	public double getDiametre() {
 		return 2 * this.getRayon();
 	}
+	public double getSide(double width){
+		double xPosition = this.getPosition().x;
+		if(xPosition < width)
+			return -1 + (xPosition / (width / 2));
+		return ((2 * xPosition) / width) - 1;
+	}
 }

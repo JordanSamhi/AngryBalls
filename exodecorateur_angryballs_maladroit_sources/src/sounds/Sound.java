@@ -1,26 +1,25 @@
 package sounds;
 
-import java.io.File;
-import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-
+import javafx.scene.media.AudioClip;
 import mesmaths.geometrie.base.Vecteur;
 
-public class Sound {
-
+public class Sound{
 	private static Sound instance = null;
 	private boolean mute;
-	private File sonBilleBord, sonBilleBille;
+	private final String soundBilleBordFile = "/sounds/billeBord.wav";
+	private final String soundCollisionBilleFile = "/sounds/collisionBille.wav";
+	private AudioClip soundBilleBord, soundCollisionBille;
 
 	private Sound() {
-		this.sonBilleBord = new File("bin/sounds/billeBord.wav");
-		this.sonBilleBille = new File("bin/sounds/collisionBille.wav");
+		try {
+			this.soundBilleBord = new AudioClip(this.getClass().getResource(soundBilleBordFile).toURI().toURL().toString());
+			this.soundCollisionBille = new AudioClip(this.getClass().getResource(soundCollisionBilleFile).toURI().toURL().toString());
+		} catch (MalformedURLException | URISyntaxException e) {
+			e.printStackTrace();
+		}
 		this.mute = false;
 	}
 
@@ -30,35 +29,18 @@ public class Sound {
 		return instance;
 	}
 
-	public void playSoundBilleBord(boolean collision, Vecteur intensite){
-		this.playSound(this.sonBilleBord, collision, (float) (intensite.norme()));
+	public void playSoundBilleBord(boolean collision, Vecteur intensite, double side){
+		this.playSound(this.soundBilleBord, collision, (float) (intensite.norme()), side);
 	}
 
-	public void playSoundBilleBille(Vecteur intensite){
+	public void playSoundBilleBille(Vecteur intensite, double side){
 		if(intensite != null)
-			this.playSound(this.sonBilleBille, true, (float) (intensite.norme()));
+			this.playSound(this.soundCollisionBille, true, (float) (intensite.norme()), side);
 	}
 
-	private void playSound(File file, boolean collision, float intensiteVolume) {
+	private void playSound(AudioClip clip, boolean collision, float intensiteVolume, double side) {
 		if(collision && !this.mute){
-			AudioInputStream audioInputStream = null;
-			Clip clip = null;
-			FloatControl control = null;
-			float range, volume;
-			try {
-				audioInputStream = AudioSystem.getAudioInputStream(file);
-				clip = AudioSystem.getClip();
-				clip.open(audioInputStream);
-				control = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-			} catch (LineUnavailableException | IOException e){
-				e.printStackTrace();
-			} catch (UnsupportedAudioFileException e){
-				e.printStackTrace();
-			}
-			range = control.getMaximum() - control.getMinimum();
-			volume = (range * Math.min(1.0f, Math.max(0.4f, intensiteVolume))) + control.getMinimum();
-			control.setValue(volume);
-			clip.start();
+			clip.play(Math.min(1.0, intensiteVolume), side, 1, 0, 0);
 		}
 	}
 	

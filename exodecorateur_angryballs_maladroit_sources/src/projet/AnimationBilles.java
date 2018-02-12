@@ -42,8 +42,11 @@ public class AnimationBilles implements Runnable{
 				for(Bille billeCourante : this.billes){
 					billeCourante.déplacer(this.getDeltaT());
 					billeCourante.gestionAccélération(this.billes);
-					Sound.getInstance().playSoundBilleBille(billeCourante.gestionCollisionBilleBille(this.billes));
-					Sound.getInstance().playSoundBilleBord(billeCourante.collisionContour(0, 0, vueBillard.largeurBillard(), vueBillard.hauteurBillard()), billeCourante.getVitesse());
+					Sound.getInstance().playSoundBilleBille(billeCourante.gestionCollisionBilleBille(this.billes), 
+							billeCourante.getSide(this.vueBillard.largeurBillard()));
+					Sound.getInstance().playSoundBilleBord(billeCourante.collisionContour(0, 0, vueBillard.largeurBillard(), 
+							vueBillard.hauteurBillard()), billeCourante.getVitesse(), billeCourante.getSide(this.vueBillard.largeurBillard()));
+					billeCourante.getSide(this.vueBillard.largeurBillard());
 				}
 				vueBillard.miseAJour();
 				Thread.sleep((int)this.getDeltaT());
