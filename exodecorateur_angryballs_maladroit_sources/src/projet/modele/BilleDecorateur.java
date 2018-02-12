@@ -93,15 +93,8 @@ public abstract class BilleDecorateur extends Bille {
 		return this.getNext().pointIsInsideBille(point);
 	}
 	
-	public void handleMousePressed(MouseEvent e) {
-		this.getNext().handleMousePressed(e);
-	}
-	
-	public void handleMouseDragged(MouseEvent e) {
-		this.getNext().handleMouseDragged(e);
-	}
-	
-	public void handleMouseReleased(MouseEvent e) {
-		this.getNext().handleMouseReleased(e);
+	@Override
+	public void handleMouseEvent(MouseEvent e) {
+		this.getNext().handleMouseEvent(e);
 	}
 }

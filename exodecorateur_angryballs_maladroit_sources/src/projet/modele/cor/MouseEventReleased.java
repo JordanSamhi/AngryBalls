@@ -1,21 +1,23 @@
 package projet.modele.cor;
 
 import java.awt.event.MouseEvent;
-import java.util.Vector;
 
-import projet.modele.Bille;
+import projet.modele.decorateurs.BillePilotee;
+import projet.modele.etats.ControleurEtatBillePilotee;
 
 public class MouseEventReleased extends MouseEventExpertCOR {
 
-	public MouseEventReleased(MouseEventExpertCOR m, Vector<Bille> billes) {
-		super(m, billes);
+	public MouseEventReleased(MouseEventExpertCOR m, BillePilotee bille) {
+		super(m, bille);
 	}
 
+	/**
+	 * Si on lache souris, etat suivant.
+	 */
 	@Override
-	public boolean reconnaitEvent(MouseEvent e) {
+	public boolean reconnaitEvent(MouseEvent e, ControleurEtatBillePilotee controleur) {
 		if(e.getID() == MouseEvent.MOUSE_RELEASED){
-			for(Bille bille : this.getBilles())
-					bille.handleMouseReleased(e);
+			this.bille.setControleurCourant(controleur.getNext());
 			return true;
 		}
 		return false;

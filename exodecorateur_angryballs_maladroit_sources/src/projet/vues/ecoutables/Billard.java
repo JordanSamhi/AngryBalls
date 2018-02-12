@@ -10,10 +10,6 @@ import javax.swing.JPanel;
 import projet.AnimationBilles;
 import projet.ecouteur.EcouteurSourisBillard;
 import projet.modele.Bille;
-import projet.modele.cor.MouseEventDragged;
-import projet.modele.cor.MouseEventExpertCOR;
-import projet.modele.cor.MouseEventPressed;
-import projet.modele.cor.MouseEventReleased;
 import projet.vues.Observable;
 import projet.vues.Observateur;
 
@@ -22,7 +18,6 @@ public class Billard extends JPanel implements Ecoutable, Observable{
 	private static final long serialVersionUID = 1L;
 	private Vector<Bille> billes;
 	private Vector<Observateur> observers;
-	private MouseEventExpertCOR expert;
 	
 	public Billard() {
 		super();
@@ -48,14 +43,8 @@ public class Billard extends JPanel implements Ecoutable, Observable{
 
 	@Override
 	public void action(AnimationBilles animationBilles, AWTEvent e) {
-		this.initExperts();		
-		this.expert.traiteEvenement((MouseEvent) e);
-	}
-
-	private void initExperts() {
-		this.expert = new MouseEventPressed(null, this.getBilles());
-		this.expert = new MouseEventReleased(this.expert, this.getBilles());
-		this.expert = new MouseEventDragged(this.expert, this.getBilles());
+		for(Bille bille : this.getBilles())
+			bille.handleMouseEvent((MouseEvent) e);
 	}
 
 	@Override

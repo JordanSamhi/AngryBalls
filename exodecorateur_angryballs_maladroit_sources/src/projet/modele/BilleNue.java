@@ -111,17 +111,7 @@ public class BilleNue extends Bille {
 	}
 
 	@Override
-	public void handleMousePressed(MouseEvent e) {
-		// Do nothing
-	}
-
-	@Override
-	public void handleMouseDragged(MouseEvent e) {
-		// Do nothing
-	}
-
-	@Override
-	public void handleMouseReleased(MouseEvent e) {
+	public void handleMouseEvent(MouseEvent e) {
 		// Do nothing
 	}
 }

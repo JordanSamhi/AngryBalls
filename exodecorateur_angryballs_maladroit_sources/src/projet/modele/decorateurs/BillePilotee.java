@@ -27,16 +27,8 @@ public class BillePilotee extends BilleDecorateur{
 		this.controleurCourant = this.controleurAttrapable;
 	}
 	
-	public void handleMousePressed(MouseEvent e) {
-		this.getControleurCourant().handleMousePressed(e);
-	}
-	
-	public void handleMouseDragged(MouseEvent e) {
-		this.getControleurCourant().handleMouseDragged(e);
-	}
-	
-	public void handleMouseReleased(MouseEvent e) {
-		this.getControleurCourant().handleMouseReleased(e);
+	public void handleMouseEvent(MouseEvent e){
+		this.controleurCourant.handleMouseEvent(e);
 	}
 
 	public ControleurEtatBillePilotee getControleurCourant() {

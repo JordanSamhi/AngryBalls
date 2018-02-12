@@ -23,10 +23,8 @@ public abstract class Bille{
 	public abstract void setVitesse(Vecteur vitesse);
 	public abstract void setPosition(Vecteur position);
 	public abstract void setAcceleration(Vecteur acceleration);
-	public abstract void handleMousePressed(MouseEvent e);
-	public abstract void handleMouseDragged(MouseEvent e);
-	public abstract void handleMouseReleased(MouseEvent e);
 	public abstract boolean pointIsInsideBille(Vecteur point);
+	public abstract void handleMouseEvent(MouseEvent e);
 	
 	public String toString(){
 		return "centre = " + this.getPosition() + " rayon = "+ this.getRayon()+  " vitesse = " + this.getVitesse() 

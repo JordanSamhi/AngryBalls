@@ -2,8 +2,9 @@ package projet.modele.cor;
 
 import java.awt.event.MouseEvent;
 
-public interface MouseEventExpert {
+import projet.modele.etats.ControleurEtatBillePilotee;
 
-	public boolean traiteEvenement(MouseEvent e);
-	public boolean reconnaitEvent(MouseEvent e);
+public interface MouseEventExpert {
+	public boolean traiteEvenement(MouseEvent e, ControleurEtatBillePilotee controleur);
+	public boolean reconnaitEvent(MouseEvent e, ControleurEtatBillePilotee controleur);
 }
