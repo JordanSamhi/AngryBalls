@@ -18,7 +18,7 @@ public class AnimationBilles implements Runnable{
 	private Vector<Bille> billes; 
 	private VueBillard vueBillard;
 	private Thread thread;
-	private final double deltaT = 5;
+	private final double deltaT = 10;
 	private final double vMax = 0.1;
 	private Mode mode;
 
@@ -46,7 +46,6 @@ public class AnimationBilles implements Runnable{
 							billeCourante.getSide(this.vueBillard.largeurBillard()));
 					Sound.getInstance().playSoundBilleBord(billeCourante.collisionContour(0, 0, vueBillard.largeurBillard(), 
 							vueBillard.hauteurBillard()), billeCourante.getVitesse(), billeCourante.getSide(this.vueBillard.largeurBillard()));
-					billeCourante.getSide(this.vueBillard.largeurBillard());
 				}
 				vueBillard.miseAJour();
 				Thread.sleep((int)this.getDeltaT());
