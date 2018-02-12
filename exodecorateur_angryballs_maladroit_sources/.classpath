@@ -2,6 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/jordan/Downloads/documents_design_patterns_a_diffuser_M1_annee_17_18/projet_angryballs_2017_2018/mesmaths_sources.jar"/>
+	<classpathentry kind="lib" path="D:/documents_design_patterns_a_diffuser_M1_annee_17_18/projet_angryballs_2017_2018/mesmaths_sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
