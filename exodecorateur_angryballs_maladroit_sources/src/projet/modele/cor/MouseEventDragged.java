@@ -36,8 +36,10 @@ public class MouseEventDragged extends MouseEventExpertCOR {
 			MouseEventExpertCOR.distanceDeplacement = MouseEventExpertCOR.positionSourisActuelle.difference(MouseEventExpertCOR.oldDraggedPosition);
 			MouseEventExpertCOR.vitesseScalaire = MouseEventExpertCOR.distanceDeplacement.norme() / MouseEventExpertCOR.tempsPasse;
 			
-			if(MouseEventExpertCOR.vitesseScalaire != 0)
-				MouseEventExpertCOR.velociteDeplacement = new Vecteur(distanceDeplacement.produit(vitesseScalaire/distanceDeplacement.norme()));
+			if(MouseEventExpertCOR.vitesseScalaire != 0 && tempsPasse != 0)
+				MouseEventExpertCOR.velociteDeplacement = new Vecteur(
+						MouseEventExpertCOR.distanceDeplacement.produit(
+								MouseEventExpertCOR.vitesseScalaire/MouseEventExpertCOR.distanceDeplacement.norme()));
 			
 			if(this.getBille().pointIsInsideBille(MouseEventExpertCOR.positionSourisActuelle)) {	
 				this.getBille().setPosition(MouseEventExpertCOR.positionSourisActuelle.difference(MouseEventExpertCOR.differenceSourisPressedPositionBilleInitiale));

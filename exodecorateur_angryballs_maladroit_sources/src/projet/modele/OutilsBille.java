@@ -47,7 +47,7 @@ public class OutilsBille
 	 * @return null si pas de collision
 	 * 			vecteur vitesse correspondant à la plus grande vitesse des deux billes en collision
 	 * */
-	
+
 	public static Vecteur gestionCollisionBilleBille(Bille cetteBille, Vector<Bille> billes){
 		Vector<Bille> autresBilles = OutilsBille.autresBilles(cetteBille, billes);
 		for(Bille bille : autresBilles) {
@@ -57,7 +57,7 @@ public class OutilsBille
 					return cetteBille.getVitesse();
 				return bille.getVitesse();
 			}
-				
+
 		}
 		return null;
 	}
@@ -74,7 +74,7 @@ public class OutilsBille
 	 * @return a : le vecteur accélération résultant
 	 * 
 	 * */
-	
+
 	public static Vecteur gestionAccélérationNewton(Bille cetteBille, Vector<Bille> billes){
 		Vector<Bille> autresBilles = OutilsBille.autresBilles(cetteBille, billes);
 
