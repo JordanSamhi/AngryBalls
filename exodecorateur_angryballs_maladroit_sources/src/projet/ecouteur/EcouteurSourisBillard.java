@@ -8,7 +8,6 @@ import projet.vues.ecoutables.Billard;
 
 
 public class EcouteurSourisBillard extends Ecouteur implements MouseInputListener{
-	
 
 	public EcouteurSourisBillard(Billard billard) {
 		super(billard);
