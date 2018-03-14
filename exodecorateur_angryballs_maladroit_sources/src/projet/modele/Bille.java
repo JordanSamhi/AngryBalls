@@ -8,17 +8,17 @@ import java.util.Vector;
 import mesmaths.geometrie.base.Vecteur;
 
 public abstract class Bille{
-	public abstract void gestionAccélération(Vector<Bille> billes);
+	public abstract void gestionAccÃ©lÃ©ration(Vector<Bille> billes);
 	public abstract Vecteur getPosition();
 	public abstract double getRayon();
 	public abstract Color getColor();
 	public abstract Vecteur getVitesse();
-	public abstract Vecteur getAccélération();
+	public abstract Vecteur getAccÃ©lÃ©ration();
 	public abstract int getClef();
 	public abstract double masse();
-	public abstract void déplacer( double deltaT);
+	public abstract void dÃ©placer( double deltaT);
 	public abstract Vecteur gestionCollisionBilleBille(Vector<Bille> billes);
-	public abstract boolean collisionContour(double abscisseCoinHautGauche, double ordonnéeCoinHautGauche, double largeur, double hauteur);
+	public abstract boolean collisionContour(double abscisseCoinHautGauche, double ordonnÃ©eCoinHautGauche, double largeur, double hauteur);
 	public abstract void dessine (Graphics g);
 	public abstract void setVitesse(Vecteur vitesse);
 	public abstract void setPosition(Vecteur position);
@@ -28,7 +28,7 @@ public abstract class Bille{
 	
 	public String toString(){
 		return "centre = " + this.getPosition() + " rayon = "+ this.getRayon()+  " vitesse = " + this.getVitesse() 
-		+ " accélération = " + this.getAccélération()+ " couleur = " + this.getColor() + "clef = " + this.getClef();
+		+ " accÃ©lÃ©ration = " + this.getAccÃ©lÃ©ration()+ " couleur = " + this.getColor() + "clef = " + this.getClef();
 	}
 	
 	public double getDiametre() {
@@ -36,7 +36,7 @@ public abstract class Bille{
 	}
 	public double getSide(double width){
 		double xPosition = this.getPosition().x;
-		if(xPosition < width)
+		if(xPosition < width/2)
 			return -1 + (xPosition / (width / 2));
 		return ((2 * xPosition) / width) - 1;
 	}
