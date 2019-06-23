@@ -21,7 +21,7 @@ One just has to import the project into eclipse, then launch the main method.
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
-## Screenshots
+### Screenshots
 
 ![Home of application](https://github.com/dusby/AngryBalls/blob/master/screenshots/home.png)
 ![Normal mode](https://github.com/dusby/AngryBalls/blob/master/screenshots/marbles.png)
