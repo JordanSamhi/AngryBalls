@@ -1,6 +1,6 @@
 # Angry Balls
 
-This project is part of University of lorraine first year of master degree python project. The goal is to implement different marbles with different capabilities using decorator design pattern, the sound is also implemented. A billard has also been implemented.
+This project is part of University of lorraine first year of master degree design pattern project. The goal is to implement different marbles with different capabilities using decorator design pattern, the sound is also implemented. A billard has also been implemented.
 
 Marbles capabilities : 
 
